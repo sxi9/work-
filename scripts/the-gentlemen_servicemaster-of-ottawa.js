@@ -6,10 +6,10 @@ const victimName = "ServiceMaster of Ottawa";
 const groupName = "The Gentlemen";
 const countryTag = "Canada";
 const regionValue = "us_canada";
-const industryValue = "professional_services";
+const industryValues = ["professional_services"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting ServiceMaster of Ottawa, a Canada-based property restoration and commercial cleaning company. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting ServiceMaster of Ottawa, a Canada-based property restoration and commercial cleaning company. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = `ServiceMaster of Ottawa
 svmottawa.ca ServiceMaster of Ottawa Canadian property restoration and commercial cleaning company (legal entity 1351120 Ontario Inc.), a ServiceMaster franchise since 1969 — owned since 2006 by John Cooke. HQ at 180 Wescar Lane, Ottawa (Carp/Richmond), ~140 staff, 24/7/365 emergency service across the National Capital Region. Core: water/fire/mold remediation, asbestos removal, reconstruction, odor control, janitorial — backed by IICRC techs, HCRA license B62544, Tarion, WSIB+liability, Restore 365/Xactimate. Record: 40,000+ customers served; Cooke won ServiceMaster's "Brand Ambassador of the Year" 2026, "Mid-Market Business of the Year" (Ottawa Chamber, 2008). Reputation mixed (3.8–4.3/5, 313+ reviews) — excellent on small jobs and named techs (Ryan Potestio, Jeff Jerome)
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

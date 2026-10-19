@@ -12,34 +12,43 @@ entries and the examples in `victims-log.md`.
 - If the group is missing, ask or default to the most recent group used, and say so.
 
 ## Naming rules
-- **Victim name = legal name with corporate suffix stripped** (no Inc, LLC, LLP, Ltd, Ltée,
-  s.r.o., SAS, AB, GmbH, Co., etc.). Example: leak lists "Machine sro", legal name
-  "K2 Machine s.r.o." → use **K2 Machine** everywhere (title, target tag, content, image title).
+- **Victim name = the name as shown on the victim's own LinkedIn or website copyright
+  line**, with corporate suffixes stripped (no Inc, LLC, LLP, Ltd, Ltée, s.r.o., SAS, AB,
+  GmbH, etc.). Examples: "Machine sro" → **K2 Machine**; "Campbell Rhea" → **CampbellRhea**
+  (website spells it one word); **Taiwan Otsuka Pharmaceutical Co.** (published name keeps
+  "Co."). Do independent research on the victim's site/LinkedIn — do not rely only on the
+  leak screenshot.
 - Title format: `[Group] Ransomware: [Victim Name]`.
 
 ## Content paragraph (Draftail "Content" block) — exact pattern
 > On [Month D, YYYY], ZeroFox observed an update on the [Group] ransomware leak site
-> targeting [Victim Name], a [country]-based [short description]. ZeroFox has detected more
-> than 9,850 ransomware and digital extortion victims in the past year, of which
+> targeting [Victim Name], a [country]-based [short description]. ZeroFox has detected
+> close to 9,950 ransomware and digital extortion victims in the past year, of which
 > [regional stat clause].
 
 - NEVER use "likely referencing" — always the direct "targeting X, a Y-based Z" form.
 - Description is ONE short plain phrase ("a U.S.-based office furniture manufacturer"),
-  no founding dates, revenue, or capability lists.
+  no founding dates, revenue, or capability lists. Base the description on INDEPENDENT
+  RESEARCH of the victim's website/LinkedIn, not just the leak screenshot text.
+- When the name is self-explanatory (university, hospital, school), NO description —
+  just the country: "targeting Wellington College International School Bangkok, Thailand."
+- A recent rebrand goes in parentheses: "targeting Europ Assistance South Africa
+  (rebranded as AZOZA), a South Africa-based provider of ...".
 - Drop the leading "the" before group names that start with "The":
   "an update on **The Gentlemen** ransomware leak site" but "an update on **the Wallstreet**
   ransomware leak site".
 
-### Regional stat clauses (from DarkOps Needles Insights Superset dashboard, pulled 2026-10-16;
-refresh when the analyst sends a new dashboard screenshot — total was 9.9k unique needles)
+### Regional stat clauses (figure and clauses per published 2026-10-19 entries; dashboard
+percentages are ROUNDED to friendly numbers — 6–7% → "over 5 percent", 8–9% → "close to
+10 percent", 12.5% → "over 10 percent" — and region names are written out in prose)
 | Region (Wagtail value) | Clause |
 |---|---|
-| us_canada (50.39%) | "over 50 percent are based in the U.S.-Canada region" |
-| eu_russia (23.87%) | "over 23 percent are based in the EU-Russia region" |
-| apac (12.51%) | "over 12 percent are based in the APAC region" |
-| south_america (6.14%) | "over 6 percent are based in the South America region" |
-| mid-east_africa (4.89%) | "nearly 5 percent are based in the Mid-East/Africa region" |
-| anzac (1.94%) | "nearly 2 percent are based in the ANZAC region" |
+| us_canada (~50%) | "over 50 percent are based in the U.S.-Canada region" |
+| eu_russia (~24%) | "over 20 percent are based in the EU-Russia region" (no published example yet — confirm with analyst) |
+| apac (~12.5%) | "over 10 percent are based in the Asia-Pacific region" |
+| south_america (~6%) | "over 5 percent are based in the South America region" |
+| mid-east_africa (~5%) | "nearly 5 percent are based in the Middle East and Africa region" |
+| anzac (~2%) | "nearly 2 percent are based in the ANZAC region" |
 
 ## Code block (raw leak text)
 - Language: **HTML**. Content = text extracted from the screenshot in EXACT visual order,
@@ -71,9 +80,12 @@ Authoritative mapping: `Industry_and_Geography_Tags.xlsx` rules (country → reg
 - APAC incl. Taiwan, China, Japan, India → apac
 - Middle East OR Africa → mid-east_africa (Wagtail merges both sheet columns)
 - Australia / New Zealand → anzac ; South America → south_america
-Industry: pick the Wagtail top-level whose sub-industries fit (e.g. law firms →
-legal_consulting; workwear retailer → retail_cpg; machine/equipment makers → manufacturing).
-Semiconductor-adjacent metal-parts makers = manufacturing (flag technology as alternative).
+Industry: check the victim's LinkedIn for their industry; pick the Wagtail top-level whose
+sub-industries fit (law firms → legal_consulting; workwear retailer → retail_cpg;
+machine/equipment makers → manufacturing). **Multiple Industry blocks are used when the
+company spans several** (published examples: AirQ = defense_aerospace + manufacturing;
+Europ Assistance South Africa = professional_services + insurance). Cable TV equipment
+distributor/repair (Tulsat) = communications, NOT technology.
 
 ## Threat group registry (onion source URLs)
 | Group | Source URL | Notes |

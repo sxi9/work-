@@ -6,10 +6,10 @@ const victimName = "Europ Assistance South Africa";
 const groupName = "The Gentlemen";
 const countryTag = "South Africa";
 const regionValue = "mid-east_africa";
-const industryValue = "insurance";
+const industryValues = ["professional_services", "insurance"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Europ Assistance South Africa, a South Africa-based emergency assistance and insurance administration company. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which nearly 5 percent are based in the Mid-East/Africa region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Europ Assistance South Africa (rebranded as AZOZA), a South Africa-based provider of emergency assistance, insurance support and risk management services. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which nearly 5 percent are based in the Middle East and Africa region.";
 
 const leakText = `Europ Assistance South Africa
 europassistance.co.za Europ Assistance South Africa South African emergency-assistance and insurance-administration company founded 1984 in Roodepoort, Gauteng — ~500 staff, FSCA licensed (FSP 5001), Level 1 B-BBEE, handling 1.3M calls/yr through 8,000+ providers. Key structural change: it completed a management buyout from French parent Europ Assistance (Generali Group) in late 2023 and rebranded to AZOZA in Oct 2025 — no longer part of the global Europ Assistance network (which itself merged into Generali's Redion platform in 2026). Services: roadside assistance, home emergency callouts, travel/motor claims administration, funeral cover, and white-label BPO for underwriters (Regent, Old Mutual, ABSA, Santam, Profmed, BMW, Eqstra). Led by CEO Lynette Mutsekwa (since 2023), CCO Nelson Soares. Reputation is split: B2B clients and 8,000 supplier-partners rate them well (12–20-year relationships)
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

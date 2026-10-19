@@ -6,10 +6,10 @@ const victimName = "Wellington College International School Bangkok";
 const groupName = "The Gentlemen";
 const countryTag = "Thailand";
 const regionValue = "apac";
-const industryValue = "education";
+const industryValues = ["education"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Wellington College International School Bangkok, a Thailand-based British international school. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 12 percent are based in the APAC region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Wellington College International School Bangkok, Thailand. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
 
 const leakText = `Wellington College International School Bangkok
 wellingtoncollege.ac.th Wellington College Bangkok is a British international school for ages 2 to 18, opened in 2018 as part of Wellington College UK, with around 1100 students on a 28 acre campus in eastern Bangkok. The curriculum runs from the English National Curriculum to IGCSE and A Levels, with the first graduating class in 2026. Fees range from about 639000 baht per year in pre nursery up to 1283500 baht in Year 12, plus a 225000 baht registration fee and a 175000 baht refundable deposit. Results are elite level with 80 percent A star or A at IGCSE and every graduate of 2026 admitted to their first choice university including Stanford, Yale and Imperial College. Admissions are selective with CAT4 testing and interviews, and strong English is required from Year 10. The school is famous for its Olympic pool, FIFA standard pitch, 600 seat theatre, wellbeing curriculum and scholarships in music, swimming, golf and academics.
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

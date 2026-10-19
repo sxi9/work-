@@ -1,15 +1,15 @@
-// Taiwan Otsuka Pharmaceutical — The Gentlemen Ransomware (October 19, 2026)
+// Taiwan Otsuka Pharmaceutical Co. — The Gentlemen Ransomware (October 19, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
-const victimName = "Taiwan Otsuka Pharmaceutical";
+const victimName = "Taiwan Otsuka Pharmaceutical Co.";
 const groupName = "The Gentlemen";
 const countryTag = "Taiwan";
 const regionValue = "apac";
-const industryValue = "healthcare";
+const industryValues = ["healthcare"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Taiwan Otsuka Pharmaceutical, a Taiwan-based pharmaceutical company. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 12 percent are based in the APAC region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Taiwan Otsuka Pharmaceutical Co., a Taiwan-based pharmaceutical company. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
 
 const leakText = `Taiwan Otsuka Pharmaceutical
 otsuka.com.tw Revenue $278.3 Million Otsuka Pharmaceutical (Taiwan) Co., Ltd. Taiwanese arm of Japan's Otsuka Holdings (TSE: 4578), operating since 1974 — first as a JV, wholly owned since 1995. HQ in Taipei's Daan District with plants in Guandu and Kaohsiung, ~500–1,000 staff, capital NT$531M, president Ryoichi Fukumoto. Core business: prescription drugs (Abilify, Mucosta, nephrology/oncology lines), consumer brands (Pocari Sweat, Nature Made, CalorieMate, SOYJOY), medical devices, and a new insurance services arm. The group posted record 2025 pharma results (+22% revenue, +43% operating profit) across 84+ countries. Taiwan-specific financials aren't published (subsidiary of a listed parent), but the entity has 52 years on the market, TFDA-registered products, and a solid employer brand with active hiring since 2024.
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

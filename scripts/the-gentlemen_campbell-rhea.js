@@ -1,15 +1,15 @@
-// Campbell Rhea — The Gentlemen Ransomware (October 19, 2026)
+// CampbellRhea — The Gentlemen Ransomware (October 19, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
-const victimName = "Campbell Rhea";
+const victimName = "CampbellRhea";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
-const industryValue = "manufacturing";
+const industryValues = ["manufacturing"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Campbell Rhea, a U.S.-based manufacturer of laboratory and educational casework. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting CampbellRhea, a U.S.-based manufacturer of laboratory casework and educational furniture. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = `Campbell Rhea
 campbellrhea.com Campbell Rhea US manufacturer of laboratory and educational casework — legal entity Institutional Casework, Inc. (ICI) — with roots to 1951 in Paris, TN. The brand survived a 2005 tornado that destroyed its former parent Mohon International, was relaunched by local investors in 2006 (CEO Jim Arthurs ever since), and acquired Jamestown Metal Products (NY) plus a steel plant in Union City, TN — 650,000 sq ft of manufacturing total. Products: wood/steel/stainless lab casework, ISOLATOR fume hoods, countertops, athletic lockers (Olympian), Patriot tables — certified SEFA-8, FSC, AIA CES. Revenue $32.1M (2025) per FDMC 300, down from a $63.5M COVID-era peak (2022); ~250 employees, 35+ US dealers, projects at Penn State, UC Davis, Vanderbilt, Case Western, U of Missouri.
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

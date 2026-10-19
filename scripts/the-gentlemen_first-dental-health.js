@@ -6,10 +6,10 @@ const victimName = "First Dental Health";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
-const industryValue = "healthcare";
+const industryValues = ["healthcare"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting First Dental Health, a U.S.-based dental consulting company. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting First Dental Health, a U.S.-based dental consulting company. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = `First Dental Health
 firstdentalhealth.com First Dental Health, Inc. dental consulting company founded in 1995 and based in Sacramento, California. It is led by Chairman and CEO Michael Zhang together with founder Dr. Rick Kershner, a periodontist who previously worked with Western Dental, Coast Dental and Pacific Dental Services. The company transforms existing dental practices of 40 to 250 chairs through leadership development, culture building and operational excellence, typically raising performance by 40 to 80 percent within 2 to 4 years. Its flagship case is Sacramento Dentistry Group, which grew from around 330000 dollars monthly revenue in 2014 to roughly 640000 dollars by 2023. It also runs a DSO consolidation model that merges 6 to 10 practices under one brand with owners keeping equity and a 3 to 7 year exit path. The team has built 14 companies that made the Inc. 5000 list, positioning it as a small but high-impact operator in US dental business consulting.
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

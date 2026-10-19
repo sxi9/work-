@@ -6,10 +6,10 @@ const victimName = "Universidade de Passo Fundo";
 const groupName = "The Gentlemen";
 const countryTag = "Brazil";
 const regionValue = "south_america";
-const industryValue = "education";
+const industryValues = ["education"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Universidade de Passo Fundo, a Brazil-based private community university. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 6 percent are based in the South America region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Universidade de Passo Fundo, Brazil. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.";
 
 const leakText = `Universidade de Passo Fundo
 upf.br Universidade de Passo Fundo private community philanthropic university in Passo Fundo, Rio Grande do Sul, Brazil — founded 1968 (Decree 62.835), run by the FUPF foundation, with 7 campuses, ~10,000 students, 486 professors (48% PhD), and 100,000+ alumni. It holds the maximum MEC institutional rating (5), ranks 6th among Brazil's best private universities and 5th in research nationally (RUF 2025), and is in the THE World 2026 ranking and top-300 globally for sustainability (GreenMetric). Flagships: Medicine (MEC concept 5, expanding from 750 to 2,000 students with R$ 60M invested), Pharmacy (MEC 5), Veterinary (Hospital Veterinário + 170-ha Cepagro), Engineering (chemical #5 nationally), and Law (70 years old). Financially healthy — R$ 60M annual surplus, independent audits published, board with civil-society oversight; ~70% of students get aid (ProUni, Bolsa Filantropia, FIES, CrediUPF). New rector for 2026–2030: Edison Alencar Casagranda (93% of votes, took office July 2026).
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

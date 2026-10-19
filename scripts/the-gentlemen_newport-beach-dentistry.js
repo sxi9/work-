@@ -6,10 +6,10 @@ const victimName = "Newport Beach Dentistry";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
-const industryValue = "healthcare";
+const industryValues = ["healthcare"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Newport Beach Dentistry, a U.S.-based family dental practice. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Newport Beach Dentistry, a U.S.-based family dental practice. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = `Newport Beach Dentistry
 dentistryofnewportbeach.com Newport Beach Dentistry family dental practice in Newport Beach, CA (1401 Avocado Ave, Ste 209), founded 30+ years ago and currently run by brothers Dr. F. Frank Foroutan (USC DDS 1998) and Dr. F. Ryan Foroutan (USC DDS 1996) — a practice that changed ownership from Dr. Rasch → Kantor/Appelsies → Foroutan over the decades. Services: implants, crowns, veneers, Invisalign, root canals, periodontics, extractions, sedation, whitening, emergency care (same-day); accepts Delta Dental Premier/PPO and most major insurance, CareCredit financing; $99 new-patient special (exam + X-rays + cleaning). Team ~10 (Nancy — office manager, Monica — front desk, Erica — hygienist); languages: English, Farsi, Spanish. Related entities: Foroutan Dental Inc. (Buena Park), OC Elite Dental (Buena Park + Anaheim Hills); also connected to F. Foroutan DDS Inc. (Corona). No revenue disclosed (private practice, est. $2–5M/yr for 3 doctors in this location).
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

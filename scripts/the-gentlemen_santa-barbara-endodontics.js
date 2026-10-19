@@ -6,10 +6,10 @@ const victimName = "Santa Barbara Endodontics";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
-const industryValue = "healthcare";
+const industryValues = ["healthcare"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Santa Barbara Endodontics, a U.S.-based endodontics dental practice. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Santa Barbara Endodontics, a U.S.-based dental care provider. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = `Santa Barbara Endodontics
 sbendo.com Santa Barbara Endodontics solo specialty practice of Dr. Terrell F. Pannkuk, DDS, MScD — one of the most credentialed endodontists in the US — at 9 E Pedregosa St, Santa Barbara, CA, operating since 1987 (39 years). Pannkuk is a Diplomate of the American Board of Endodontics (since 1988), volunteer clinical professor at UCSF, peer reviewer for the Journal of Endodontics, founding president of the Schilder Institute, founder of Pure Dental Learning, and author of a chapter in Ingle's Endodontics (7th ed.) — peers call him "the endodontist's endodontist." Services: root canals, retreatment, apicoectomy, implants, CBCT 3D diagnostics (Carestream 9600), microscope-assisted microsurgery, same-day emergency care. Team of 5 staff.
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

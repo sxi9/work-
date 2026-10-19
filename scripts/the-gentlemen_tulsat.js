@@ -6,10 +6,10 @@ const victimName = "Tulsat";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
-const industryValue = "technology";
+const industryValues = ["communications"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Tulsat, a U.S.-based distributor and repair center for cable television equipment. ZeroFox has detected more than 9,850 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Tulsat, a U.S.-based supplier, distributor, and repair service provider for cable television. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = `Tulsat
 tulsat.com TULSAT leading US distributor and repair center for cable TV (CATV) equipment — headend gear, fiber nodes, amplifiers, taps, power supplies — founded 1985 by brothers David and Ken Chymiak in Broken Arrow, OK (100,000+ sq ft). From a bankruptcy buyout it became exclusive Master Distributor and authorized service center for Scientific-Atlanta (now Cisco), plus Motorola/Arris, CommScope, ATX, Quintech. It merged into public ADDvantage Technologies (NASDAQ: AEY) in 1999 (peak revenue $50.3M in 2005), then the cable segment was bought back by David Chymiak's Leveling 8 Inc. for $10.3M in 2019 — private again. Today: ~25 staff, est. ~$10M revenue; group includes NCS Industries (PA), ComTech Services (MO), Tulsat-Atlanta (GA), Nave Communications (MD), Triton Datacom (FL). Core value: largest legacy/obsolete CATV parts inventory + factory-authorized repair, a lifeline for aging networks as cord-cutting shrinks the industry.
@@ -125,7 +125,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -178,7 +180,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');

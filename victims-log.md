@@ -16,11 +16,13 @@
 | 2026-10-19 | The Gentlemen | First Dental Health | United States / us_canada | healthcare | firstdentalhealth.com (domain) | dental consulting; professional_services was alternative industry |
 | 2026-10-19 | The Gentlemen | Wellington College International School Bangkok | Thailand / apac | education | wellingtoncollege.ac.th (domain) | |
 | 2026-10-19 | The Gentlemen | Santa Barbara Endodontics | United States / us_canada | healthcare | sbendo.com (domain) | |
-| 2026-10-19 | The Gentlemen | Tulsat | United States / us_canada | technology | tulsat.com (domain) | Technology Distributors; communications was alternative |
+| 2026-10-19 | The Gentlemen | Tulsat | United States / us_canada | communications | tulsat.com (domain) | corrected per published entry |
 | 2026-10-19 | The Gentlemen | Newport Beach Dentistry | United States / us_canada | healthcare | dentistryofnewportbeach.com (domain) | |
-| 2026-10-19 | The Gentlemen | Campbell Rhea | United States / us_canada | manufacturing | campbellrhea.com (domain) | legal entity Institutional Casework, Inc.; brand name used |
+| 2026-10-19 | The Gentlemen | CampbellRhea | United States / us_canada | manufacturing | campbellrhea.com (domain) | one-word name per website; legal entity Institutional Casework, Inc. |
 | 2026-10-19 | The Gentlemen | Universidade de Passo Fundo | Brazil / south_america | education | upf.br (domain) | first South America entry (over 6 percent clause) |
-| 2026-10-19 | The Gentlemen | Taiwan Otsuka Pharmaceutical | Taiwan / apac | healthcare | otsuka.com.tw (domain) | legal: Otsuka Pharmaceutical (Taiwan) Co., Ltd. |
-| 2026-10-19 | The Gentlemen | Europ Assistance South Africa | South Africa / mid-east_africa | insurance | europassistance.co.za (domain) | first Mid-East/Africa entry (nearly 5 percent clause) |
+| 2026-10-19 | The Gentlemen | Taiwan Otsuka Pharmaceutical Co. | Taiwan / apac | healthcare | otsuka.com.tw (domain) | legal: Otsuka Pharmaceutical (Taiwan) Co., Ltd. |
+| 2026-10-19 | The Gentlemen | Europ Assistance South Africa | South Africa / mid-east_africa | professional_services + insurance | europassistance.co.za (domain) | rebranded as AZOZA (noted in content); published |
 | 2026-10-19 | The Gentlemen | Entry Systems | United States / us_canada | construction | entrysystems.com (domain) | listed "Entry Systems Garage Doors Gates"; legal: Laguna Niguel Garage Door Service, Inc. |
 | 2026-10-19 | The Gentlemen | ServiceMaster of Ottawa | Canada / us_canada | professional_services | svmottawa.ca (domain) | legal entity 1351120 Ontario Inc. |
+| 2026-10-19 | The Gentlemen | AirQ | United Arab Emirates / mid-east_africa | defense_aerospace + manufacturing | airq-ad.com (domain) | published by analyst; multi-industry example |
+| 2026-10-19 | The Gentlemen | Gio Dental & Med Spa | Mexico / us_canada | healthcare | giodentalspa.com (domain) | published by analyst; Mexico maps to US/Canada |

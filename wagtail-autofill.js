@@ -12,7 +12,7 @@ const victimName = "VICTIM NAME (legal name, suffix stripped)";
 const groupName = "GROUP NAME"; // e.g. "Wallstreet" or "The Gentlemen"
 const countryTag = "COUNTRY"; // e.g. "United States"
 const regionValue = "us_canada"; // us_canada, eu_russia, apac, anzac, mid-east_africa, south_america, global
-const industryValue = "manufacturing"; // Wagtail industry select value
+const industryValues = ["manufacturing"]; // one or more Wagtail industry select values
 const onionUrl = "GROUP ONION URL (see CLAUDE.md registry)";
 
 // THE CONTENT PARAGRAPH — write out in full as one literal string.
@@ -136,7 +136,9 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 4. Region, Industry, Threat
     await ensureSingleTypeBlock('region_tags-root', 'Region', 'region_tags-0-value', regionValue);
-    await ensureSingleTypeBlock('industry_tags-root', 'Industry', 'industry_tags-0-value', industryValue);
+    for (let i = 0; i < industryValues.length; i++) {
+        await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
+    }
     await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
 
     // 5. Contents - Content block (Draftail)
@@ -189,7 +191,7 @@ async function writeDraftail(hiddenInputId, text) {
     console.log('--- VERIFY ---');
     console.log('Title:', document.getElementById('id_title')?.value);
     console.log('Region:', document.getElementById('region_tags-0-value')?.value || '⚠️ EMPTY');
-    console.log('Industry:', document.getElementById('industry_tags-0-value')?.value || '⚠️ EMPTY');
+    industryValues.forEach((v, i) => console.log(`Industry ${i + 1}:`, document.getElementById(`industry_tags-${i}-value`)?.value || '⚠️ EMPTY'));
     console.log('Threat:', document.getElementById('threat_types-0-value')?.value || '⚠️ EMPTY');
     const cInput = document.getElementById('contents-0-value');
     console.log('Content:', (cInput && cInput.value && cInput.value.includes('ZeroFox observed')) ? 'OK (synced)' : '⚠️ NOT SYNCED — see warning above');
