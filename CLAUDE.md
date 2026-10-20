@@ -137,6 +137,11 @@ text template handed to the analyst lists them in the same order: content paragr
   ("OAKGROVETECH"), "Publicated files: click here to go", the www and bare domain lines, data size,
   "Description" heading, the write-up (keep its blank line and em dashes), and the post date last
   ("2 October 2026"). The embedded screenshot of the victim's own website is an image — not transcribed.
+- Wallstreet listings (2026-10-20 capture) are a modal: name line, "ENDS IN 00h 00m 00s" on one line,
+  the data-type icon row as one line ("DOCUMENTS EMAILS CREDENTIALS PERSONAL DATA MEDIA"),
+  "CONFIDENTIAL", the files path ("/f/26f867268d737afeef80cf68"), then the description paragraph.
+  Transcribed in that visual order even though the timer is near the top. The "/f/<hash>" path is the
+  published-files location — the only victim-specific path seen on the Wallstreet site so far.
 
 ## Fixed field values (every entry)
 - TLP: GREEN (select value "1")
@@ -197,12 +202,13 @@ the analyst's published choice (2026-10-20): commercial landscaping (Caretaker) 
 (construction is the alternative); wireless-concealment-system maker (Solar Communications International)
 = manufacturing + communications; real-estate investment sponsor (Macfarlan Capital Partners) = financial_services
 (use a real-estate value too if Wagtail has one); defense training/intelligence contractor (Oak Grove
-Technologies) = defense_aerospace + professional_services.
+Technologies) = defense_aerospace + professional_services. Youth-development nonprofit (Girl Scouts council) = education
+until a nonprofit value is confirmed in Wagtail.
 
 ## Threat group registry (onion source URLs)
 | Group | Source URL pattern | Notes |
 |---|---|---|
-| Wallstreet | http://4dwiv37h7hhuhjpvtn72hme4ylcv3qoe65arfc6mbweal7als6ma7pyd.onion/ | single word, no quotes |
+| Wallstreet | http://4dwiv37h7hhuhjpvtn72hme4ylcv3qoe65arfc6mbweal7als6ma7pyd.onion/ | single word, no quotes; listing modal shows a files path "/f/<hash>" (e.g. /f/26f867268d737afeef80cf68 for Girl Scouts of Eastern Massachusetts, 2026-10-20) — root kept as Source URL until the analyst confirms the path is wanted |
 | The Gentlemen | http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/ | multi-word → quoted in tags; no "the" before name in content |
 | n0n | http://nongzecboljwv3yfndkggsybsglfrkffw7bvk2zemuteoxe6etpusnad.onion/#v-<victim-slug> | per-victim fragment: #v-hpc-hamburg.de, #v-evospine, #v-envision; Ransomware |
 | NightSpire | http://nspirep7orjq73k2x2fwh2mxgh74vm2now6cdbnnxjk2f5wn34bmdxad.onion/database/<id> | e.g. /database/1895; Ransomware |

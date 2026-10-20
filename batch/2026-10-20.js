@@ -1,4 +1,4 @@
-// Needles batch — built 2026-10-20 from 7 script(s):
+// Needles batch — built 2026-10-20 from 8 script(s):
 //   scripts/storm_patriot-maritime.js
 //   scripts/storm_baltimore-tank-lines.js
 //   scripts/storm_merit-financial-group.js
@@ -6,6 +6,7 @@
 //   scripts/pear_solar-communications-international.js
 //   scripts/pear_macfarlan-capital-partners.js
 //   scripts/dragonforce_oak-grove-technologies.js
+//   scripts/wallstreet_girl-scouts-of-eastern-massachusetts.js
 //
 // How a built batch file works — paste it into the browser console (F12) on ANY Wagtail admin page:
 //  1. A green panel appears top-right listing the queued victims.
@@ -161,6 +162,23 @@ const QUEUE = [
         "value": "oakgrovetech.com"
       }
     ]
+  },
+  {
+    "victimName": "Girl Scouts of Eastern Massachusetts",
+    "groupName": "Wallstreet",
+    "sourceActorName": "Wallstreet",
+    "titleSeparator": " Ransomware: ",
+    "threatType": "ransomware",
+    "ddwTag": "DDW Ransomware",
+    "countryTag": "United States",
+    "regionValue": "us_canada",
+    "industryValues": [
+      "education"
+    ],
+    "onionUrl": "http://4dwiv37h7hhuhjpvtn72hme4ylcv3qoe65arfc6mbweal7als6ma7pyd.onion/",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Wallstreet ransomware leak site targeting Girl Scouts of Eastern Massachusetts, a U.S.-based nonprofit Girl Scouts council serving eastern Massachusetts. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "leakText": "Girl Scouts of Eastern Massachusetts\nENDS IN 00h 00m 00s\nDOCUMENTS EMAILS CREDENTIALS PERSONAL DATA MEDIA\nCONFIDENTIAL\n/f/26f867268d737afeef80cf68\nGirl Scouts of Eastern Massachusetts, Inc. (GSEMA) is a 501(c)(3) nonprofit serving girls and young people across eastern Massachusetts. Its mission is to help girls build courage, confidence, and character so they can make the world a better place",
+    "iocs": []
   }
 ];
 
