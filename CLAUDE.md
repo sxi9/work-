@@ -35,7 +35,7 @@ refined over many entries and the examples in `victims-log.md`.
 ## Content paragraph (Draftail "Content" block) — exact pattern
 > On [Month D, YYYY], ZeroFox observed an update on the [Group] ransomware leak site
 > targeting [Victim Name], a [country]-based [short description]. ZeroFox has detected
-> close to 9,950 ransomware and digital extortion victims in the past year, of which
+> more than 10,000 ransomware and digital extortion victims in the past year, of which
 > [stat clause].
 
 - NEVER use "likely referencing" — always the direct "targeting X, a Y-based Z" form.
@@ -67,7 +67,25 @@ refined over many entries and the examples in `victims-log.md`.
 |---|---|
 | 2026-10-15 | "more than 9,850" |
 | 2026-10-16 | "close to 9,900" |
-| 2026-10-19 | "close to 9,950" (current default) |
+| 2026-10-19 | "close to 9,950" |
+| 2026-10-20 | "more than 10,000" (current default — dashboard "# Unique Needles" read 10k; the regional counts/percentages put it at about 10,010) |
+
+### Where the figures come from (the Needles victim dashboard)
+The analyst reads the figure and the percentages off the internal Needles dashboard and pastes
+a screenshot when they change (first pasted 2026-10-20). Filters on that screenshot: Created At
+= "Last year"; Threat Type = "ransomware" + "data_breach"; Actor/Industry/Region/Confidence/
+Reliability/TLP unfiltered. Cards used:
+- "# Unique Needles" → the victim-count figure (10k on 2026-10-20 → "more than 10,000").
+- "Needles by Region" pie → the regional clause. 2026-10-20 reading: us_canada 5.04k (50.35%),
+  eu_russia 2.39k (23.82%), apac 1.26k (12.60%), south_america 618 (6.17%), mid-east_africa
+  491 (4.90%), anzac 191 (1.91%). The legend has a second page (probably "global") — not read.
+- "Needles by Threat Type" pie: ransomware 8.63k (86.26%), data_breach 1.38k (13.74%). Not used
+  in any clause so far.
+- The sector alternative (technology ≈ 10 percent) comes from the industry chart further down.
+Rounding rule as published: round to the nearest friendly number, say "over" when the dashboard
+value sits above it (50.35 → "over 50", 12.60 → "over 10", 6.17 → "over 5") and "nearly" when it
+sits just below (23.82 → "nearly 25", 4.90 → "nearly 5", 1.91 → "nearly 2"). When a new dashboard
+screenshot is pasted, add a row to the figure table above and refresh this reading.
 
 ### Stat clauses (per published entries; dashboard percentages are ROUNDED to friendly
 numbers and region names are written out in prose)
