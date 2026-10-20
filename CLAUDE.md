@@ -234,11 +234,48 @@ console (F12) on the Wagtail add/edit page. Hard-won implementation facts — do
    The Data Breach select value has not been read from the live page — check the option
    value in F12 before an Everest entry; the script now prints the available option values
    if the one given does not exist.
+8. The body is ONE function, `fillNeedle(cfg, win)`: every DOM, jQuery, event constructor and
+   timer call goes through `win`, so the same code can fill a tab opened by the batch runner.
+   It returns the VERIFY summary (title, region, industries, threat, content sync, code, IOCs,
+   imageTitle, warnings) and prints it in `win`'s console. The pasted script ends with the
+   single-victim call after the `// ---- single-victim run` marker; make-batch.js cuts there.
+   Per-victim scripts in `scripts/` = header + variables + the base body from the `// ----`
+   marker; regenerate them all whenever the base body changes (scratch script: take each
+   file up to the marker, append the base from the marker; check `node --check` + a diff of
+   the body against the base).
+
+## Batch runs (`wagtail-batch.js`, `make-batch.js`, `batch/`)
+The analyst wants to open the add page for every victim and apply the console code in one go,
+with console code only (no extension, no local tooling). Build ONE paste-ready file per batch
+here in the repo:
+```
+node make-batch.js batch/2026-10-20.js scripts/storm_*.js scripts/pear_*.js scripts/dragonforce_*.js
+```
+`make-batch.js` evaluates each victim script's variables block (up to the `// ----` marker) with
+`vm`, embeds the configs as JSON (`QUEUE`), copies `fillNeedle()` out of `wagtail-autofill.js` and
+drops both into the `wagtail-batch.js` panel template (lines starting `// [TEMPLATE]` are
+stripped). Commit the built file under `batch/` and hand its path to the analyst.
+How the analyst uses it: paste the whole file into the console on ANY Wagtail admin page → a
+green panel lists the queue → set the "Add Needle" page URL once (prefilled when pasted on the
+add page; remembered in localStorage key `zfNeedleAddUrl`) → "Open & fill next" opens a new tab
+on that URL (`window.open`, same origin), waits for `#id_title`, `#contents-root` and
+`jQuery.fn.tagit` (up to 2 min; cross-origin SecurityErrors during an SSO redirect are swallowed),
+then runs `fillNeedle(cfg, newTab)` from the opener. The analyst adds the Image block, a Relation
+if needed, reads VERIFY in the new tab's console, saves the draft, returns and clicks again.
+"Fill this tab" fills the next victim into the current add page; "Skip" moves on; re-pasting the
+file restarts the queue. Browsers may ask once to allow pop-ups for the admin host. Saving stays
+manual on purpose: the screenshot upload and the Relation cannot be scripted.
+Verified 2026-10-20 against a mock of the Wagtail form (same ids, Draftail-style paste handler,
+StreamField + buttons, IOC InlinePanel) with Playwright: 7 victims filled in 7 fresh tabs, content
+synced, code block and IOC rows set, no page errors. The real admin has only been exercised with
+the single-victim scripts so far — the first live batch run should start with one victim.
 
 ## Per-victim deliverable to the analyst
 1. The filled text template (title, fields, content paragraph, code block, IOCs, tags).
 2. The full console script with ALL variables pre-filled (contentText as a plain literal
    string, never assembled from template variables).
+   For two or more victims also build and commit `batch/<date>.js` with make-batch.js and
+   give the analyst that one file (see "Batch runs").
 3. Flags for anything assumed (missing group/date), truncated leak text, judgment-call
    industry picks, the stat-clause choice where two published variants exist (APAC,
    region vs sector), and any prior Needle on the same victim that needs a Relation.
