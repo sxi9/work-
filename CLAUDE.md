@@ -121,6 +121,15 @@ technology figure is published; use it when the analyst asks for a sector clause
   Employees"), the STATUS / VIEWS / LIMIT DAY / POSTED cards, and the "Files on record" block;
   include "← Back" when the capture shows it. The Storm sector tag is NOT the Wagtail industry
   (Baltimore Tank Lines was tagged "Energy" but is a liquid-bulk trucking carrier → logistics).
+- Pear listings are cards: name line with the red "ANNOUNCED" badge transcribed as text ("Caretaker
+  Landscape and Tree Management ANNOUNCED"), one-line description, "Data Volume: 544 Gb", "Show more",
+  "Date Company Notified: MM/DD/YYYY", "Site: domain", "Industry: ...", "Location: USA", "Revenue: $56.6M",
+  "Details". "Show more" means the description is truncated — expand it on the live listing. The Pear
+  "Industry" line is the leak site's label, not the Wagtail industry.
+- DragonForce listings are a "Publication (www.victim.com)" modal: header line, victim handle in caps
+  ("OAKGROVETECH"), "Publicated files: click here to go", the www and bare domain lines, data size,
+  "Description" heading, the write-up (keep its blank line and em dashes), and the post date last
+  ("2 October 2026"). The embedded screenshot of the victim's own website is an image — not transcribed.
 
 ## Fixed field values (every entry)
 - TLP: GREEN (select value "1")
@@ -176,7 +185,12 @@ optometry clinics and dental practices = healthcare; Chugoku Bend expansion-join
 manufacturing. Cable TV equipment distributor/repair (Tulsat) = communications, NOT
 technology. Trucking carriers and ship-management contractors = logistics (the only
 transport-type value confirmed to exist in Wagtail); a government-vessel contractor also gets
-defense_aerospace (Patriot Maritime = logistics + defense_aerospace).
+defense_aerospace (Patriot Maritime = logistics + defense_aerospace). Judgment calls awaiting
+the analyst's published choice (2026-10-20): commercial landscaping (Caretaker) = professional_services
+(construction is the alternative); wireless-concealment-system maker (Solar Communications International)
+= manufacturing + communications; real-estate investment sponsor (Macfarlan Capital Partners) = financial_services
+(use a real-estate value too if Wagtail has one); defense training/intelligence contractor (Oak Grove
+Technologies) = defense_aerospace + professional_services.
 
 ## Threat group registry (onion source URLs)
 | Group | Source URL pattern | Notes |
@@ -189,6 +203,8 @@ defense_aerospace (Patriot Maritime = logistics + defense_aerospace).
 | Vexy | http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog | blog root used for both published entries; Ransomware |
 | Everest | http://everestndkvzcibcje2cqxhre2hmmybl3rn2gwzwsblz7gx6uryn5rad.onion/news/<victim-slug> | Data Breach; title "Everest: X"; tag "DDW Communications"; e.g. /news/brenner-base-tunnel (two other published Everest entries left Source URL blank — fill it when the listing URL is known) |
 | Storm | http://yqhecvqtdvq6p7duqcgw2qca77spbgakxcoibtx6zpvfshltsbbbhfqd.onion/ | Ransomware; title "Storm Ransomware: X"; each listing is its own detail page ("← Back" link) but the per-victim path has not been captured yet — use the site root unless the analyst copies the listing URL from the address bar; first entries 2026-10-20 (Patriot Maritime, Baltimore Tank Lines, Merit Financial Group) |
+| Pear | http://pearsmob5sn44ismokiusuld34pnfwi6ctgin3qbvonpoob4lh3rmtqd.onion/ | Ransomware per analyst ("pear ransomware"); title "Pear Ransomware: X", group cased "Pear" (trackers write pear/PEAR; the group styles itself "Pure Extraction And Ransom (PEAR) Team" and Halcyon calls it data-theft-only, so switch to the Everest format only if the analyst says so). Cards have a "Details" link to a per-victim page — path not captured yet, site root used; first entries 2026-10-20 (Caretaker Landscape and Tree Management, Solar Communications International, Macfarlan Capital Partners) |
+| DragonForce | http://xjhmtitnrdrgzw4vmsghirdoo2fk35a3tzj4enlmah4pvehdspydsiyd.onion/blog | Ransomware (RaaS); one word, capital F ("DragonForce", analyst wrote "dragon force"); listings open as a "Publication (www.victim.com)" modal on the blog — per-victim path not captured, /blog used; first entry 2026-10-20 (Oak Grove Technologies) |
 
 ## Console script (`wagtail-autofill.js`)
 Fill the variables block at the top per victim and paste the whole file into the browser
