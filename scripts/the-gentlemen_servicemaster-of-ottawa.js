@@ -1,4 +1,4 @@
-// ServiceMaster of Ottawa — The Gentlemen Ransomware (October 19, 2026)
+// ServiceMaster of Ottawa — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 const victimName = "ServiceMaster of Ottawa";
 const groupName = "The Gentlemen";
@@ -11,11 +11,11 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting ServiceMaster of Ottawa, a Canada-based property restoration and commercial cleaning company. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting ServiceMaster of Ottawa, a Canada-based property restoration and commercial cleaning company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`ServiceMaster of Ottawa
 svmottawa.ca ServiceMaster of Ottawa Canadian property restoration and commercial cleaning company (legal entity 1351120 Ontario Inc.), a ServiceMaster franchise since 1969 — owned since 2006 by John Cooke. HQ at 180 Wescar Lane, Ottawa (Carp/Richmond), ~140 staff, 24/7/365 emergency service across the National Capital Region. Core: water/fire/mold remediation, asbestos removal, reconstruction, odor control, janitorial — backed by IICRC techs, HCRA license B62544, Tarion, WSIB+liability, Restore 365/Xactimate. Record: 40,000+ customers served; Cooke won ServiceMaster's "Brand Ambassador of the Year" 2026, "Mid-Market Business of the Year" (Ottawa Chamber, 2008). Reputation mixed (3.8–4.3/5, 313+ reviews) — excellent on small jobs and named techs (Ryan Potestio, Jeff Jerome)
-Activates in 135:21:37`;
+Activates in 102:08:09`;
 
 const iocs = [
     { type: "domain", value: "svmottawa.ca" }

@@ -10,6 +10,9 @@ refined over many entries and the examples in `victims-log.md`.
 
 ## Input the analyst gives per victim
 - Leak-site screenshot (or raw text) and the threat group name. Date defaults to today.
+- A victim re-sent with a newer screenshot (Entry Systems and ServiceMaster of Ottawa came back on
+  2026-10-20 after scripts dated 10-19) gets its script re-dated to today, the current figure, and
+  the new timer line; tell the analyst to skip it in the batch if the 10-19 entry was already saved.
 - If the group is missing, ask or default to the most recent group used, and say so.
 
 ## Naming rules
@@ -22,6 +25,15 @@ refined over many entries and the examples in `victims-log.md`.
 - Keep the brand's own casing and punctuation: **polisee** (lowercase, title "Vexy
   Ransomware: polisee"), **Data-Core Systems** (hyphen), **Envision EyeCare** (leak wrote
   "EnVision Eye Care"), **Brenner Basistunnel BBT SE** (SE kept — it is part of the name).
+- When the site is unreachable (503 through the proxy happened for ptelcom.com, songwooi.co.kr,
+  caspapermill.com, pantanalagricola.com.br on 2026-10-20), take the name from the logo in the
+  listing, the legal name in the leak text and trade press, strip the suffix, and flag it.
+- Brand vs legal name: Entry Systems and CampbellRhea use the brand as the site shows it; Merit
+  Financial Group and Janet, Janet & Suggs use the copyright-line name with the trading brand in
+  parentheses in the content ("Janet, Janet & Suggs (JJS Justice)"). A renamed school keeps the
+  current site name with the old one in parentheses: "St. Peter's Anglican Grammar (formerly St
+  Peter's Anglican Primary School), Australia." Keep diacritics and casing from the site: "Sládek &
+  partners", "Pantanal Agrícola", "Thai HA".
 - Unidentifiable target: use the listing name as shown and put the disambiguator in
   parentheses: title `NightSpire Ransomware: Colorado (Texas)`, target tag "Colorado (Texas)".
 - Title format by group:
@@ -203,7 +215,11 @@ the analyst's published choice (2026-10-20): commercial landscaping (Caretaker) 
 = manufacturing + communications; real-estate investment sponsor (Macfarlan Capital Partners) = financial_services
 (use a real-estate value too if Wagtail has one); defense training/intelligence contractor (Oak Grove
 Technologies) = defense_aerospace + professional_services. Youth-development nonprofit (Girl Scouts council) = education
-until a nonprofit value is confirmed in Wagtail.
+until a nonprofit value is confirmed in Wagtail. 2026-10-20 Gentlemen batch guesses: agricultural-input
+distributor (Pantanal Agrícola) = "agriculture" (value NOT confirmed to exist — the script lists the options if it
+is missing); professional membership body (Engineers Ireland) = professional_services; freight brokerage (Axle
+Logistics) = logistics; rice/noodle producer (Thai HA) and paper mill (C.A.S. Paper Mill) = manufacturing;
+two-way-radio integrator (Petroleum Telcom) = communications; venture capital firm = financial_services.
 
 ## Threat group registry (onion source URLs)
 | Group | Source URL pattern | Notes |
@@ -282,6 +298,8 @@ Verified 2026-10-20 against a mock of the Wagtail form (same ids, Draftail-style
 StreamField + buttons, IOC InlinePanel) with Playwright: 7 victims filled in 7 fresh tabs, content
 synced, code block and IOC rows set, no page errors. The real admin has only been exercised with
 the single-victim scripts so far — the first live batch run should start with one victim.
+Built files so far: `batch/2026-10-20.js` (Storm ×3, Pear ×3, DragonForce, Wallstreet) and
+`batch/2026-10-20-the-gentlemen.js` (14 Gentlemen victims). One file per group batch keeps the queue short.
 
 ## Per-victim deliverable to the analyst
 1. The filled text template (title, fields, content paragraph, code block, IOCs, tags).
