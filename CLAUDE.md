@@ -103,6 +103,13 @@ numbers and region names are written out in prose)
 polisee, Japan and Data-Core Systems, U.S., both industry technology, 10-19). Only the
 technology figure is published; use it when the analyst asks for a sector clause.
 
+## Contents block order (analyst rule, 2026-10-20)
+**Content first, then the HTML Code block, then the Image block.** The Content paragraph is
+always Contents block 0 and the Code block is block 1; the Image block is added by the analyst
+after them. The scripts enforce this (Content → `contents-0-value`, Code → `contents-1-value-*`),
+so never add the Code or Image block before running a script — it would shift the indexes. The
+text template handed to the analyst lists them in the same order: content paragraph, then code block.
+
 ## Code block (raw leak text)
 - Language: **HTML**. Content = text extracted from the screenshot in EXACT visual order,
   top to bottom: listing name line, then description paragraph (domains/zoominfo link lead
