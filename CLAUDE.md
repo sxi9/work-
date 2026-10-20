@@ -97,6 +97,12 @@ technology figure is published; use it when the analyst asks for a sector clause
   line is the listing header exactly as shown ("tkni.co.kr 263 GB DataBase").
 - Leak write-ups contain backslash paths; the console script keeps `leakText` as
   `String.raw` for that reason (see script facts).
+- Storm listings are dashboard-style pages: transcribe, in visual order, the sector tag
+  ("Aerospace & Defense", "Energy", "FinTech"), timer, listing name, "City · State · Country",
+  "Posted N day ago", the progress-bar dates, the description paragraph (ends with "N-M
+  Employees"), the STATUS / VIEWS / LIMIT DAY / POSTED cards, and the "Files on record" block;
+  include "← Back" when the capture shows it. The Storm sector tag is NOT the Wagtail industry
+  (Baltimore Tank Lines was tagged "Energy" but is a liquid-bulk trucking carrier → logistics).
 
 ## Fixed field values (every entry)
 - TLP: GREEN (select value "1")
@@ -150,7 +156,9 @@ construction; Coopecaja savings & credit cooperative = financial_services; polis
 policy-intelligence platform and Data-Core IT consulting = technology; Envision EyeCare
 optometry clinics and dental practices = healthcare; Chugoku Bend expansion-joint maker =
 manufacturing. Cable TV equipment distributor/repair (Tulsat) = communications, NOT
-technology.
+technology. Trucking carriers and ship-management contractors = logistics (the only
+transport-type value confirmed to exist in Wagtail); a government-vessel contractor also gets
+defense_aerospace (Patriot Maritime = logistics + defense_aerospace).
 
 ## Threat group registry (onion source URLs)
 | Group | Source URL pattern | Notes |
@@ -162,6 +170,7 @@ technology.
 | INC Ransom | http://incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion/blog/disclosures/<hash> | title/content "INC"; Source/Actor tag "INC Ransom"; Ransomware |
 | Vexy | http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog | blog root used for both published entries; Ransomware |
 | Everest | http://everestndkvzcibcje2cqxhre2hmmybl3rn2gwzwsblz7gx6uryn5rad.onion/news/<victim-slug> | Data Breach; title "Everest: X"; tag "DDW Communications"; e.g. /news/brenner-base-tunnel (two other published Everest entries left Source URL blank — fill it when the listing URL is known) |
+| Storm | http://yqhecvqtdvq6p7duqcgw2qca77spbgakxcoibtx6zpvfshltsbbbhfqd.onion/ | Ransomware; title "Storm Ransomware: X"; each listing is its own detail page ("← Back" link) but the per-victim path has not been captured yet — use the site root unless the analyst copies the listing URL from the address bar; first entries 2026-10-20 (Patriot Maritime, Baltimore Tank Lines, Merit Financial Group) |
 
 ## Console script (`wagtail-autofill.js`)
 Fill the variables block at the top per victim and paste the whole file into the browser
