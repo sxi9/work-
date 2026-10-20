@@ -23,7 +23,7 @@ const onionUrl = "VICTIM-SPECIFIC LISTING URL (see CLAUDE.md registry for each g
 // THE CONTENT PARAGRAPH — write out in full as one literal string.
 // Pattern: On [date], ZeroFox observed an update on [the] [Group] ransomware leak
 // site targeting [Victim], a [country]-based [short description]. ZeroFox has
-// detected more than 10,000 ransomware and digital extortion victims in the past
+// detected close to 10,000 ransomware and digital extortion victims in the past
 // year, of which [regional or sector stat clause — see CLAUDE.md table].
 // Everest: "an update on the Everest leak site targeting ..." (no "ransomware").
 const contentText = "FULL CONTENT PARAGRAPH HERE";

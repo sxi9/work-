@@ -15,7 +15,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Baltimore Tank Lines, a U.S.-based liquid bulk trucking carrier. ZeroFox has detected more than 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Baltimore Tank Lines, a U.S.-based liquid bulk trucking carrier. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`← Back
 Energy

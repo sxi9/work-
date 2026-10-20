@@ -15,7 +15,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Merit Financial Group (doing business as Merit Financial Advisors), a U.S.-based wealth management firm. ZeroFox has detected more than 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Merit Financial Group (doing business as Merit Financial Advisors), a U.S.-based wealth management firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`FinTech
 8 days
