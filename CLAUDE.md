@@ -1,11 +1,12 @@
-# DDW Ransomware Victim Entry Workflow (ZeroFox Wagtail / Needles)
+# DDW Ransomware / Extortion Victim Entry Workflow (ZeroFox Wagtail / Needles)
 
-This repo is the shared memory for creating ransomware-victim "Needles page" entries in
-the ZeroFox intel Wagtail admin (https://intel-api.zerofox.com/wagtail/admin/). When the
-analyst (hkumar@zerofox.com) pastes a leak-site screenshot or raw leak text plus a group
-name, produce (1) the filled text template and (2) a ready-to-run browser console script
-(see `wagtail-autofill.js`). Follow every rule below exactly — they were refined over many
-entries and the examples in `victims-log.md`.
+This repo is the shared memory for creating ransomware- and extortion-victim "Needles page"
+entries in the ZeroFox intel Wagtail admin (https://intel-api.zerofox.com/wagtail/admin/).
+When the analyst (hkumar@zerofox.com, or the current session user; the published examples
+below were saved under Wagtail user "Sivasastha") pastes a leak-site screenshot or raw leak
+text plus a group name, produce (1) the filled text template and (2) a ready-to-run browser
+console script (see `wagtail-autofill.js`). Follow every rule below exactly — they were
+refined over many entries and the examples in `victims-log.md`.
 
 ## Input the analyst gives per victim
 - Leak-site screenshot (or raw text) and the threat group name. Date defaults to today.
@@ -18,37 +19,71 @@ entries and the examples in `victims-log.md`.
   (website spells it one word); **Taiwan Otsuka Pharmaceutical Co.** (published name keeps
   "Co."). Do independent research on the victim's site/LinkedIn — do not rely only on the
   leak screenshot.
-- Title format: `[Group] Ransomware: [Victim Name]`.
+- Keep the brand's own casing and punctuation: **polisee** (lowercase, title "Vexy
+  Ransomware: polisee"), **Data-Core Systems** (hyphen), **Envision EyeCare** (leak wrote
+  "EnVision Eye Care"), **Brenner Basistunnel BBT SE** (SE kept — it is part of the name).
+- Unidentifiable target: use the listing name as shown and put the disambiguator in
+  parentheses: title `NightSpire Ransomware: Colorado (Texas)`, target tag "Colorado (Texas)".
+- Title format by group:
+  - Ransomware groups (Wallstreet, The Gentlemen, n0n, NightSpire, Vexy, INC):
+    `[Group] Ransomware: [Victim Name]`.
+  - INC: the title and content say "INC" (`INC Ransomware: Coopecaja`, "the INC ransomware
+    leak site") but the Source Name(s) and Actor(s) tags are **"INC Ransom"**.
+  - Everest (data-extortion group, not ransomware): `Everest: [Victim Name]` — no
+    "Ransomware" word anywhere in the title.
 
 ## Content paragraph (Draftail "Content" block) — exact pattern
 > On [Month D, YYYY], ZeroFox observed an update on the [Group] ransomware leak site
 > targeting [Victim Name], a [country]-based [short description]. ZeroFox has detected
 > close to 9,950 ransomware and digital extortion victims in the past year, of which
-> [regional stat clause].
+> [stat clause].
 
 - NEVER use "likely referencing" — always the direct "targeting X, a Y-based Z" form.
-- Description is ONE short plain phrase ("a U.S.-based office furniture manufacturer"),
-  no founding dates, revenue, or capability lists. Base the description on INDEPENDENT
-  RESEARCH of the victim's website/LinkedIn, not just the leak screenshot text.
+- **Everest**: "ZeroFox observed an update on the Everest leak site targeting ..." — no
+  "ransomware" before "leak site". The stats sentence is unchanged.
+- **Unidentifiable target** (published NightSpire example): `targeting "Colorado Texas."
+  However, at the time of reporting, the intended target remains unclear due to the lack of
+  unique identifiers.` then the stats sentence. No "a [country]-based ..." description.
+- Description is ONE plain descriptive phrase ("a U.S.-based office furniture manufacturer").
+  A short "specializing in / offering / serving ..." tail is acceptable (published: "a
+  U.S.-based IT consulting and technology services company specializing in digital
+  transformation, AI, automation, and business process outsourcing"; "a Costa Rica-based
+  savings and credit cooperative offering financial services to public and private sector
+  workers"; "a U.S.-based optometry and eye care clinic network serving the El Paso, Texas
+  area"). Still no founding dates, revenue, headcount, or capability lists. Base it on
+  INDEPENDENT RESEARCH of the victim's website/LinkedIn, not just the leak screenshot text.
+- Country adjective is the plain country name: Germany-based, Japan-based, South Korea-based,
+  Costa Rica-based, "an Italy-based", U.S.-based, Canada-based.
 - When the name is self-explanatory (university, hospital, school), NO description —
   just the country: "targeting Wellington College International School Bangkok, Thailand."
 - A recent rebrand goes in parentheses: "targeting Europ Assistance South Africa
   (rebranded as AZOZA), a South Africa-based provider of ...".
 - Drop the leading "the" before group names that start with "The":
   "an update on **The Gentlemen** ransomware leak site" but "an update on **the Wallstreet**
-  ransomware leak site".
+  ransomware leak site", "the n0n ransomware leak site", "the Vexy ransomware leak site".
 
-### Regional stat clauses (figure and clauses per published 2026-10-19 entries; dashboard
-percentages are ROUNDED to friendly numbers — 6–7% → "over 5 percent", 8–9% → "close to
-10 percent", 12.5% → "over 10 percent" — and region names are written out in prose)
+### Victim-count figure (moves with the dashboard — use the latest published figure)
+| Entry date | Figure |
+|---|---|
+| 2026-10-15 | "more than 9,850" |
+| 2026-10-16 | "close to 9,900" |
+| 2026-10-19 | "close to 9,950" (current default) |
+
+### Stat clauses (per published entries; dashboard percentages are ROUNDED to friendly
+numbers and region names are written out in prose)
 | Region (Wagtail value) | Clause |
 |---|---|
 | us_canada (~50%) | "over 50 percent are based in the U.S.-Canada region" |
-| eu_russia (~24%) | "over 20 percent are based in the EU-Russia region" (no published example yet — confirm with analyst) |
-| apac (~12.5%) | "over 10 percent are based in the Asia-Pacific region" |
+| eu_russia (~24%) | "nearly 25 percent are based in the Europe-Russia region" (published: HPC Hamburg 10-15, Brenner Basistunnel 10-19) |
+| apac (~12.5%) | "over 10 percent are based in the Asia-Pacific region" (The Gentlemen entries 10-19) — the Everest entries of the same date used "nearly 15 percent are based in the Asia-Pacific region". Default to "over 10 percent"; flag the choice and confirm with the analyst. |
 | south_america (~6%) | "over 5 percent are based in the South America region" |
 | mid-east_africa (~5%) | "nearly 5 percent are based in the Middle East and Africa region" |
 | anzac (~2%) | "nearly 2 percent are based in the ANZAC region" |
+
+**Industry-sector alternative**: the clause may cite the sector instead of the region —
+"of which nearly 10 percent are from the technology sector" (published Vexy entries
+polisee, Japan and Data-Core Systems, U.S., both industry technology, 10-19). Only the
+technology figure is published; use it when the analyst asks for a sector clause.
 
 ## Code block (raw leak text)
 - Language: **HTML**. Content = text extracted from the screenshot in EXACT visual order,
@@ -57,41 +92,76 @@ percentages are ROUNDED to friendly numbers — 6–7% → "over 5 percent", 8�
   "Ends in5d 11h ...") LAST. Nothing reordered, reworded, or dropped. If screenshot text is
   cut off mid-sentence, transcribe as shown and tell the analyst to complete it from the
   live listing.
+- Paste the full listing text even when it runs to tens of thousands of words (Everest
+  write-ups such as "bbt-se.com 812 GB DataBase" + the whole CONTENTS document). The first
+  line is the listing header exactly as shown ("tkni.co.kr 263 GB DataBase").
+- Leak write-ups contain backslash paths; the console script keeps `leakText` as
+  `String.raw` for that reason (see script facts).
 
 ## Fixed field values (every entry)
 - TLP: GREEN (select value "1")
 - Reliability: C - Fairly Reliable (value "3")
 - Confidence: 3 - Possibly true (value "3")
-- Threat type: Ransomware
+- Threat type: **Ransomware** for ransomware groups; **Data Breach** for Everest.
 - Language(s): English
-- Tags: "DDW Ransomware", "DDW Victims", "PII Packages", "PII Sites", plus the country tag
-- Source Name(s) and Actor(s): the group name (tag widget auto-quotes multi-word names)
-- Image block: leak-site screenshot, titled exactly like the page title (added manually by analyst)
+- Tags: **"DDW Ransomware"** (ransomware groups) or **"DDW Communications"** (Everest), plus
+  "DDW Victims", "PII Packages", "PII Sites", plus the country tag (multi-word countries are
+  auto-quoted: "United States", "South Korea", "Costa Rica").
+- Source Name(s) and Actor(s): the group tag (auto-quoted when multi-word; INC uses
+  "INC Ransom").
+- Source URL(s): the **victim-specific listing URL** where the site has one (see registry
+  patterns), not just the site root.
+- Image block: leak-site screenshot added manually by the analyst, titled
+  `[Group]_[VictimNameNoSpaces]_1` — `n0n_EvolutionSpine_1`, `Vexy_Data-CoreSystems_1`,
+  `INC_Coopecaja_1`, `Everest_BrennerBasistunnelBBTSE_1` (HPC kept underscores for spaces:
+  `n0n_HPC_Hamburg_Port_Consulting_1`). Earlier Gentlemen entries titled the image like the
+  page title; use `Group_Victim_1` going forward.
+- Relations: if the victim already has a Needle from another group, add a Relation to it
+  (published: Vexy Data-Core Systems → "FSOCIETY Ransomware: Data-Core Systems"). Search
+  Needles for the victim name before finishing and tell the analyst what you found.
 
 ## IOCs
 - Every domain in the leak text → its own **Domain** IOC (bare domain, e.g. k2machine.cz).
 - Every ZoomInfo link → **Profile** IOC as full URL (https://www.zoominfo.com/c/...).
 - No other IOC types unless the analyst asks.
+- Observation: the published n0n, NightSpire and Everest examples carried no IOC rows even
+  where the leak text named a domain (bbt-se.com, tkni.co.kr, bend.co.jp); INC and Vexy had
+  one domain row. Still produce the Domain/Profile IOCs — the analyst can drop them.
 
 ## Region / Industry mapping
-Authoritative mapping: `Industry_and_Geography_Tags.xlsx` rules (country → region column):
-- US, Canada, **Mexico, Central America, Caribbean** → us_canada
-- Europe incl. Czech Republic, France, UK, **Turkey, Russia** → eu_russia
-- APAC incl. Taiwan, China, Japan, India → apac
+Authoritative mapping: `Industry_and_Geography_Tags.xlsx` rules (country → region column;
+the sheet itself is not in this repo — the summary below is what future sessions have):
+- US, Canada, **Mexico, Central America (Costa Rica confirmed), Caribbean** → us_canada
+- Europe incl. Czech Republic, France, UK, Germany, Italy, **Turkey, Russia** → eu_russia
+- APAC incl. Taiwan, China, Japan, South Korea, Thailand, India → apac
 - Middle East OR Africa → mid-east_africa (Wagtail merges both sheet columns)
-- Australia / New Zealand → anzac ; South America → south_america
+- Australia / New Zealand → anzac ; South America (Brazil) → south_america
+- Unidentifiable target: region from the best geographic hint in the listing ("Colorado
+  Texas" → us_canada); **no Industry block at all**.
 Industry: check the victim's LinkedIn for their industry; pick the Wagtail top-level whose
 sub-industries fit (law firms → legal_consulting; workwear retailer → retail_cpg;
 machine/equipment makers → manufacturing). **Multiple Industry blocks are used when the
 company spans several** (published examples: AirQ = defense_aerospace + manufacturing;
-Europ Assistance South Africa = professional_services + insurance). Cable TV equipment
-distributor/repair (Tulsat) = communications, NOT technology.
+Europ Assistance South Africa = professional_services + insurance; HPC Hamburg Port
+Consulting = legal_consulting + logistics; Evolution Spine spinal-implant maker =
+manufacturing + healthcare; Taekwang network-security distributor/IT services = technology
++ security). Single-block examples: Brenner Basistunnel tunnel-project company =
+construction; Coopecaja savings & credit cooperative = financial_services; polisee
+policy-intelligence platform and Data-Core IT consulting = technology; Envision EyeCare
+optometry clinics and dental practices = healthcare; Chugoku Bend expansion-joint maker =
+manufacturing. Cable TV equipment distributor/repair (Tulsat) = communications, NOT
+technology.
 
 ## Threat group registry (onion source URLs)
-| Group | Source URL | Notes |
+| Group | Source URL pattern | Notes |
 |---|---|---|
 | Wallstreet | http://4dwiv37h7hhuhjpvtn72hme4ylcv3qoe65arfc6mbweal7als6ma7pyd.onion/ | single word, no quotes |
 | The Gentlemen | http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/ | multi-word → quoted in tags; no "the" before name in content |
+| n0n | http://nongzecboljwv3yfndkggsybsglfrkffw7bvk2zemuteoxe6etpusnad.onion/#v-<victim-slug> | per-victim fragment: #v-hpc-hamburg.de, #v-evospine, #v-envision; Ransomware |
+| NightSpire | http://nspirep7orjq73k2x2fwh2mxgh74vm2now6cdbnnxjk2f5wn34bmdxad.onion/database/<id> | e.g. /database/1895; Ransomware |
+| INC Ransom | http://incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion/blog/disclosures/<hash> | title/content "INC"; Source/Actor tag "INC Ransom"; Ransomware |
+| Vexy | http://vexytsr3chimdz6siwaqi2lvxxwfkxvffkpwyanr2llequ2hkm56jvqd.onion/blog | blog root used for both published entries; Ransomware |
+| Everest | http://everestndkvzcibcje2cqxhre2hmmybl3rn2gwzwsblz7gx6uryn5rad.onion/news/<victim-slug> | Data Breach; title "Everest: X"; tag "DDW Communications"; e.g. /news/brenner-base-tunnel (two other published Everest entries left Source URL blank — fill it when the listing URL is known) |
 
 ## Console script (`wagtail-autofill.js`)
 Fill the variables block at the top per victim and paste the whole file into the browser
@@ -110,10 +180,22 @@ console (F12) on the Wagtail add/edit page. Hard-won implementation facts — do
 4. The script is idempotent: re-running on a partially filled page skips filled fields.
 5. A VERIFY summary prints at the end; "⚠️ NOT SYNCED" on Content → click the block,
    type a space, delete it, then save.
+6. `leakText` MUST be a `String.raw` template. Leak write-ups contain Windows paths like
+   `\02.02.NC_Chiuse\094.pdf`; a plain template literal throws "Octal escape sequences are
+   not allowed in template strings" and the whole script never runs. `String.raw` still
+   parses a backtick and `${`, so inside the text write a backtick as `${'`'}` and a literal
+   `${` as `${'${'}`.
+7. Per-group variables: `sourceActorName` (INC → "INC Ransom"), `titleSeparator` (Everest
+   → ": "), `threatType` ("ransomware"; Everest → Data Breach), `ddwTag` ("DDW Ransomware";
+   Everest → "DDW Communications"), `industryValues` (`[]` for an unidentifiable target).
+   The Data Breach select value has not been read from the live page — check the option
+   value in F12 before an Everest entry; the script now prints the available option values
+   if the one given does not exist.
 
 ## Per-victim deliverable to the analyst
 1. The filled text template (title, fields, content paragraph, code block, IOCs, tags).
 2. The full console script with ALL variables pre-filled (contentText as a plain literal
    string, never assembled from template variables).
-3. Flags for anything assumed (missing group/date), truncated leak text, or judgment-call
-   industry picks.
+3. Flags for anything assumed (missing group/date), truncated leak text, judgment-call
+   industry picks, the stat-clause choice where two published variants exist (APAC,
+   region vs sector), and any prior Needle on the same victim that needs a Relation.

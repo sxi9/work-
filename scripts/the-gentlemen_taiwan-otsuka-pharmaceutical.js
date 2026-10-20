@@ -8,10 +8,14 @@ const countryTag = "Taiwan";
 const regionValue = "apac";
 const industryValues = ["healthcare"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
+const sourceActorName = groupName; // Source Name(s) + Actor(s) tag
+const titleSeparator = " Ransomware: ";
+const threatType = "ransomware";
+const ddwTag = "DDW Ransomware";
 
 const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Taiwan Otsuka Pharmaceutical Co., a Taiwan-based pharmaceutical company. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
 
-const leakText = `Taiwan Otsuka Pharmaceutical
+const leakText = String.raw`Taiwan Otsuka Pharmaceutical
 otsuka.com.tw Revenue $278.3 Million Otsuka Pharmaceutical (Taiwan) Co., Ltd. Taiwanese arm of Japan's Otsuka Holdings (TSE: 4578), operating since 1974 — first as a JV, wholly owned since 1995. HQ in Taipei's Daan District with plants in Guandu and Kaohsiung, ~500–1,000 staff, capital NT$531M, president Ryoichi Fukumoto. Core business: prescription drugs (Abilify, Mucosta, nephrology/oncology lines), consumer brands (Pocari Sweat, Nature Made, CalorieMate, SOYJOY), medical devices, and a new insurance services arm. The group posted record 2025 pharma results (+22% revenue, +43% operating profit) across 84+ countries. Taiwan-specific financials aren't published (subsidiary of a listed parent), but the entity has 52 years on the market, TFDA-registered products, and a solid employer brand with active hiring since 2024.
 Activates in 135:49:42`;
 
@@ -39,6 +43,11 @@ async function ensureSingleTypeBlock(rootId, label, selectId, value) {
     if (!sel) { console.warn(`❌ ${label}: select not found after insert`); return; }
     if (sel.value) { console.log(`${label} already set (${sel.value}).`); return; }
     setAndFire(sel, value, 'change');
+    if (sel.value !== value) {
+        const opts = Array.from(sel.options).map(o => `${o.value}="${o.text}"`).join(', ');
+        console.warn(`⚠️ ${label}: "${value}" is not an option value. Options: ${opts}`);
+        return;
+    }
     console.log(`✓ ${label} = ${value}`);
 }
 
@@ -109,18 +118,18 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 2. Standard fields
     const titleField = document.getElementById('id_title');
-    if (!titleField.value) setAndFire(titleField, `${groupName} Ransomware: ${victimName}`, 'input');
+    if (!titleField.value) setAndFire(titleField, `${groupName}${titleSeparator}${victimName}`, 'input');
     setAndFire(document.getElementById('id_tlp'), "1", 'change');          // GREEN
     setAndFire(document.getElementById('id_reliability'), "3", 'change');  // C - Fairly Reliable
     setAndFire(document.getElementById('id_confidence'), "3", 'change');   // 3 - Possibly true
 
     // 3. Tags
     jQuery('#id_target_tags').tagit('createTag', victimName);
-    jQuery('#id_source_name_tags').tagit('createTag', groupName);
-    jQuery('#id_actor_tags').tagit('createTag', groupName);
+    jQuery('#id_source_name_tags').tagit('createTag', sourceActorName);
+    jQuery('#id_actor_tags').tagit('createTag', sourceActorName);
     jQuery('#id_source_url_tags').tagit('createTag', onionUrl);
     jQuery('#id_language_tags').tagit('createTag', 'English');
-    ["DDW Ransomware", "DDW Victims", "PII Packages", "PII Sites", countryTag]
+    [ddwTag, "DDW Victims", "PII Packages", "PII Sites", countryTag]
         .forEach(tag => jQuery('#id_tags').tagit('createTag', tag));
 
     // 4. Region, Industry, Threat
@@ -128,7 +137,7 @@ async function writeDraftail(hiddenInputId, text) {
     for (let i = 0; i < industryValues.length; i++) {
         await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
     }
-    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
+    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', threatType);
 
     // 5. Contents - Content block (Draftail)
     const existingContent = document.getElementById('contents-0-value');
@@ -189,5 +198,5 @@ async function writeDraftail(hiddenInputId, text) {
     document.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]').forEach((row, i) => {
         console.log(`IOC ${i}:`, row.querySelector('select[name$="-type"]')?.value, '=', row.querySelector('input[name$="-value"]')?.value);
     });
-    console.log("✅ Done! Add the Image block, check VERIFY, then Save Draft.");
+    console.log(`✅ Done! Add the Image block (title ${groupName}_${victimName.replace(/\s+/g, '')}_1), add a Relation if this victim already has a Needle from another group, check VERIFY, then Save Draft.`);
 })();

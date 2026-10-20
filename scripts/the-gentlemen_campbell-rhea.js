@@ -8,10 +8,14 @@ const countryTag = "United States";
 const regionValue = "us_canada";
 const industryValues = ["manufacturing"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
+const sourceActorName = groupName; // Source Name(s) + Actor(s) tag
+const titleSeparator = " Ransomware: ";
+const threatType = "ransomware";
+const ddwTag = "DDW Ransomware";
 
 const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting CampbellRhea, a U.S.-based manufacturer of laboratory casework and educational furniture. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
-const leakText = `Campbell Rhea
+const leakText = String.raw`Campbell Rhea
 campbellrhea.com Campbell Rhea US manufacturer of laboratory and educational casework — legal entity Institutional Casework, Inc. (ICI) — with roots to 1951 in Paris, TN. The brand survived a 2005 tornado that destroyed its former parent Mohon International, was relaunched by local investors in 2006 (CEO Jim Arthurs ever since), and acquired Jamestown Metal Products (NY) plus a steel plant in Union City, TN — 650,000 sq ft of manufacturing total. Products: wood/steel/stainless lab casework, ISOLATOR fume hoods, countertops, athletic lockers (Olympian), Patriot tables — certified SEFA-8, FSC, AIA CES. Revenue $32.1M (2025) per FDMC 300, down from a $63.5M COVID-era peak (2022); ~250 employees, 35+ US dealers, projects at Penn State, UC Davis, Vanderbilt, Case Western, U of Missouri.
 Activates in 136:30:05`;
 
@@ -39,6 +43,11 @@ async function ensureSingleTypeBlock(rootId, label, selectId, value) {
     if (!sel) { console.warn(`❌ ${label}: select not found after insert`); return; }
     if (sel.value) { console.log(`${label} already set (${sel.value}).`); return; }
     setAndFire(sel, value, 'change');
+    if (sel.value !== value) {
+        const opts = Array.from(sel.options).map(o => `${o.value}="${o.text}"`).join(', ');
+        console.warn(`⚠️ ${label}: "${value}" is not an option value. Options: ${opts}`);
+        return;
+    }
     console.log(`✓ ${label} = ${value}`);
 }
 
@@ -109,18 +118,18 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 2. Standard fields
     const titleField = document.getElementById('id_title');
-    if (!titleField.value) setAndFire(titleField, `${groupName} Ransomware: ${victimName}`, 'input');
+    if (!titleField.value) setAndFire(titleField, `${groupName}${titleSeparator}${victimName}`, 'input');
     setAndFire(document.getElementById('id_tlp'), "1", 'change');          // GREEN
     setAndFire(document.getElementById('id_reliability'), "3", 'change');  // C - Fairly Reliable
     setAndFire(document.getElementById('id_confidence'), "3", 'change');   // 3 - Possibly true
 
     // 3. Tags
     jQuery('#id_target_tags').tagit('createTag', victimName);
-    jQuery('#id_source_name_tags').tagit('createTag', groupName);
-    jQuery('#id_actor_tags').tagit('createTag', groupName);
+    jQuery('#id_source_name_tags').tagit('createTag', sourceActorName);
+    jQuery('#id_actor_tags').tagit('createTag', sourceActorName);
     jQuery('#id_source_url_tags').tagit('createTag', onionUrl);
     jQuery('#id_language_tags').tagit('createTag', 'English');
-    ["DDW Ransomware", "DDW Victims", "PII Packages", "PII Sites", countryTag]
+    [ddwTag, "DDW Victims", "PII Packages", "PII Sites", countryTag]
         .forEach(tag => jQuery('#id_tags').tagit('createTag', tag));
 
     // 4. Region, Industry, Threat
@@ -128,7 +137,7 @@ async function writeDraftail(hiddenInputId, text) {
     for (let i = 0; i < industryValues.length; i++) {
         await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
     }
-    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
+    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', threatType);
 
     // 5. Contents - Content block (Draftail)
     const existingContent = document.getElementById('contents-0-value');
@@ -189,5 +198,5 @@ async function writeDraftail(hiddenInputId, text) {
     document.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]').forEach((row, i) => {
         console.log(`IOC ${i}:`, row.querySelector('select[name$="-type"]')?.value, '=', row.querySelector('input[name$="-value"]')?.value);
     });
-    console.log("✅ Done! Add the Image block, check VERIFY, then Save Draft.");
+    console.log(`✅ Done! Add the Image block (title ${groupName}_${victimName.replace(/\s+/g, '')}_1), add a Relation if this victim already has a Needle from another group, check VERIFY, then Save Draft.`);
 })();

@@ -19,10 +19,20 @@
 | 2026-10-19 | The Gentlemen | Tulsat | United States / us_canada | communications | tulsat.com (domain) | corrected per published entry |
 | 2026-10-19 | The Gentlemen | Newport Beach Dentistry | United States / us_canada | healthcare | dentistryofnewportbeach.com (domain) | |
 | 2026-10-19 | The Gentlemen | CampbellRhea | United States / us_canada | manufacturing | campbellrhea.com (domain) | one-word name per website; legal entity Institutional Casework, Inc. |
-| 2026-10-19 | The Gentlemen | Universidade de Passo Fundo | Brazil / south_america | education | upf.br (domain) | first South America entry (over 6 percent clause) |
+| 2026-10-19 | The Gentlemen | Universidade de Passo Fundo | Brazil / south_america | education | upf.br (domain) | first South America entry (over 5 percent clause) |
 | 2026-10-19 | The Gentlemen | Taiwan Otsuka Pharmaceutical Co. | Taiwan / apac | healthcare | otsuka.com.tw (domain) | legal: Otsuka Pharmaceutical (Taiwan) Co., Ltd. |
 | 2026-10-19 | The Gentlemen | Europ Assistance South Africa | South Africa / mid-east_africa | professional_services + insurance | europassistance.co.za (domain) | rebranded as AZOZA (noted in content); published |
 | 2026-10-19 | The Gentlemen | Entry Systems | United States / us_canada | construction | entrysystems.com (domain) | listed "Entry Systems Garage Doors Gates"; legal: Laguna Niguel Garage Door Service, Inc. |
 | 2026-10-19 | The Gentlemen | ServiceMaster of Ottawa | Canada / us_canada | professional_services | svmottawa.ca (domain) | legal entity 1351120 Ontario Inc. |
 | 2026-10-19 | The Gentlemen | AirQ | United Arab Emirates / mid-east_africa | defense_aerospace + manufacturing | airq-ad.com (domain) | published by analyst; multi-industry example |
 | 2026-10-19 | The Gentlemen | Gio Dental & Med Spa | Mexico / us_canada | healthcare | giodentalspa.com (domain) | published by analyst; Mexico maps to US/Canada |
+| 2026-10-15 | n0n | HPC Hamburg Port Consulting | Germany / eu_russia | legal_consulting + logistics | none saved | published by analyst (Sivasastha); first Europe-Russia example ("nearly 25 percent"); figure "more than 9,850"; source URL fragment #v-hpc-hamburg.de |
+| 2026-10-15 | NightSpire | Colorado (Texas) | United States / us_canada | (none) | none saved | published by analyst; target unidentifiable — "intended target remains unclear" sentence, no industry block; source URL /database/1895 |
+| 2026-10-16 | INC Ransom | Coopecaja | Costa Rica / us_canada | financial_services | 1 IOC row (domain; expected coopecaja.fi.cr) | published by analyst; figure "close to 9,900"; title "INC Ransomware", tags "INC Ransom"; Costa Rica → us_canada confirmed |
+| 2026-10-19 | Vexy | polisee | Japan / apac | technology | 1 IOC row (domain; expected polisee.com) | published by analyst; lowercase brand name kept; technology-sector clause ("nearly 10 percent are from the technology sector") |
+| 2026-10-19 | Vexy | Data-Core Systems | United States / us_canada | technology | 1 IOC row (domain; expected dcsdev.org) | published by analyst; technology-sector clause; Relation added to "FSOCIETY Ransomware: Data-Core Systems" |
+| 2026-10-19 | n0n | Evolution Spine | United States / us_canada | manufacturing + healthcare | none saved | published by analyst; source URL fragment #v-evospine |
+| 2026-10-19 | n0n | Envision EyeCare | United States / us_canada | healthcare | none saved | published by analyst; leak wrote "EnVision Eye Care"; source URL fragment #v-envision |
+| 2026-10-19 | Everest | Brenner Basistunnel BBT SE | Italy / eu_russia | construction | none saved | published by analyst; Data Breach + "DDW Communications", title "Everest: ..."; "nearly 25 percent ... Europe-Russia"; full 812 GB write-up in code block; source URL /news/brenner-base-tunnel |
+| 2026-10-19 | Everest | Taekwang Network Information | South Korea / apac | technology + security | none saved | published by analyst; Data Breach format; "nearly 15 percent ... Asia-Pacific" (differs from Gentlemen "over 10 percent"); source URL left blank |
+| 2026-10-19 | Everest | Chugoku Bend | Japan / apac | manufacturing | none saved | published by analyst; Data Breach format; "nearly 15 percent ... Asia-Pacific"; source URL left blank |

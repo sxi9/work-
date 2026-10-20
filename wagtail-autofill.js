@@ -4,26 +4,36 @@
 //  - Region/Industry/Threat StreamFields insert directly on + (no chooser menu).
 //  - Content is Draftail: write via synthetic paste, never the hidden input.
 //  - IOCs are an InlinePanel: add row, fill the LAST [data-inline-panel-child].
+//  - leakText stays a String.raw template: leak write-ups contain backslash paths.
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 // --- EDIT THESE VARIABLES FOR EACH VICTIM ---
-const victimName = "VICTIM NAME (legal name, suffix stripped)";
-const groupName = "GROUP NAME"; // e.g. "Wallstreet" or "The Gentlemen"
+const victimName = "VICTIM NAME (as shown on the victim's website/LinkedIn, corporate suffix stripped)";
+const groupName = "GROUP NAME"; // display name used in title/content: "Wallstreet", "The Gentlemen", "n0n", "INC", "Everest"
+const sourceActorName = groupName; // Source Name(s) + Actor(s) tag. Differs for INC: "INC Ransom"
+const titleSeparator = " Ransomware: "; // Everest (data breach, no "Ransomware" in title): ": "
+const threatType = "ransomware"; // Everest = Data Breach: read the option value in F12 (likely "data_breach") before running
+const ddwTag = "DDW Ransomware"; // Everest: "DDW Communications"
 const countryTag = "COUNTRY"; // e.g. "United States"
 const regionValue = "us_canada"; // us_canada, eu_russia, apac, anzac, mid-east_africa, south_america, global
-const industryValues = ["manufacturing"]; // one or more Wagtail industry select values
-const onionUrl = "GROUP ONION URL (see CLAUDE.md registry)";
+const industryValues = ["manufacturing"]; // one or more Wagtail industry select values; [] when the target is unidentifiable
+const onionUrl = "VICTIM-SPECIFIC LISTING URL (see CLAUDE.md registry for each group's URL pattern)";
 
 // THE CONTENT PARAGRAPH — write out in full as one literal string.
 // Pattern: On [date], ZeroFox observed an update on [the] [Group] ransomware leak
 // site targeting [Victim], a [country]-based [short description]. ZeroFox has
-// detected more than 9,850 ransomware and digital extortion victims in the past
-// year, of which [regional stat clause — see CLAUDE.md table].
+// detected close to 9,950 ransomware and digital extortion victims in the past
+// year, of which [regional or sector stat clause — see CLAUDE.md table].
+// Everest: "an update on the Everest leak site targeting ..." (no "ransomware").
 const contentText = "FULL CONTENT PARAGRAPH HERE";
 
 // Raw leak text in EXACT screenshot order: name line, paragraph, timer line last.
-const leakText = `LEAK TEXT HERE`;
+// MUST stay String.raw — leak write-ups contain Windows paths like \02.02.NC_Chiuse
+// and a plain template literal throws "Octal escape sequences are not allowed",
+// killing the whole script. String.raw still parses two sequences, so in the text
+// replace a literal backtick with ${'`'} and a literal ${ with ${'${'}.
+const leakText = String.raw`LEAK TEXT HERE`;
 
 const iocs = [
     { type: "domain", value: "example.com" },
@@ -50,6 +60,11 @@ async function ensureSingleTypeBlock(rootId, label, selectId, value) {
     if (!sel) { console.warn(`❌ ${label}: select not found after insert`); return; }
     if (sel.value) { console.log(`${label} already set (${sel.value}).`); return; }
     setAndFire(sel, value, 'change');
+    if (sel.value !== value) {
+        const opts = Array.from(sel.options).map(o => `${o.value}="${o.text}"`).join(', ');
+        console.warn(`⚠️ ${label}: "${value}" is not an option value. Options: ${opts}`);
+        return;
+    }
     console.log(`✓ ${label} = ${value}`);
 }
 
@@ -120,18 +135,18 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 2. Standard fields
     const titleField = document.getElementById('id_title');
-    if (!titleField.value) setAndFire(titleField, `${groupName} Ransomware: ${victimName}`, 'input');
+    if (!titleField.value) setAndFire(titleField, `${groupName}${titleSeparator}${victimName}`, 'input');
     setAndFire(document.getElementById('id_tlp'), "1", 'change');          // GREEN
     setAndFire(document.getElementById('id_reliability'), "3", 'change');  // C - Fairly Reliable
     setAndFire(document.getElementById('id_confidence'), "3", 'change');   // 3 - Possibly true
 
     // 3. Tags
     jQuery('#id_target_tags').tagit('createTag', victimName);
-    jQuery('#id_source_name_tags').tagit('createTag', groupName);
-    jQuery('#id_actor_tags').tagit('createTag', groupName);
+    jQuery('#id_source_name_tags').tagit('createTag', sourceActorName);
+    jQuery('#id_actor_tags').tagit('createTag', sourceActorName);
     jQuery('#id_source_url_tags').tagit('createTag', onionUrl);
     jQuery('#id_language_tags').tagit('createTag', 'English');
-    ["DDW Ransomware", "DDW Victims", "PII Packages", "PII Sites", countryTag]
+    [ddwTag, "DDW Victims", "PII Packages", "PII Sites", countryTag]
         .forEach(tag => jQuery('#id_tags').tagit('createTag', tag));
 
     // 4. Region, Industry, Threat
@@ -139,7 +154,7 @@ async function writeDraftail(hiddenInputId, text) {
     for (let i = 0; i < industryValues.length; i++) {
         await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
     }
-    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
+    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', threatType);
 
     // 5. Contents - Content block (Draftail)
     const existingContent = document.getElementById('contents-0-value');
@@ -200,5 +215,5 @@ async function writeDraftail(hiddenInputId, text) {
     document.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]').forEach((row, i) => {
         console.log(`IOC ${i}:`, row.querySelector('select[name$="-type"]')?.value, '=', row.querySelector('input[name$="-value"]')?.value);
     });
-    console.log("✅ Done! Add the Image block, check VERIFY, then Save Draft.");
+    console.log(`✅ Done! Add the Image block (title ${groupName}_${victimName.replace(/\s+/g, '')}_1), add a Relation if this victim already has a Needle from another group, check VERIFY, then Save Draft.`);
 })();

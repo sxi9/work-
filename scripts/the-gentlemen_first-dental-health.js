@@ -8,10 +8,14 @@ const countryTag = "United States";
 const regionValue = "us_canada";
 const industryValues = ["healthcare"];
 const onionUrl = "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/";
+const sourceActorName = groupName; // Source Name(s) + Actor(s) tag
+const titleSeparator = " Ransomware: ";
+const threatType = "ransomware";
+const ddwTag = "DDW Ransomware";
 
 const contentText = "On October 19, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting First Dental Health, a U.S.-based dental consulting company. ZeroFox has detected close to 9,950 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
-const leakText = `First Dental Health
+const leakText = String.raw`First Dental Health
 firstdentalhealth.com First Dental Health, Inc. dental consulting company founded in 1995 and based in Sacramento, California. It is led by Chairman and CEO Michael Zhang together with founder Dr. Rick Kershner, a periodontist who previously worked with Western Dental, Coast Dental and Pacific Dental Services. The company transforms existing dental practices of 40 to 250 chairs through leadership development, culture building and operational excellence, typically raising performance by 40 to 80 percent within 2 to 4 years. Its flagship case is Sacramento Dentistry Group, which grew from around 330000 dollars monthly revenue in 2014 to roughly 640000 dollars by 2023. It also runs a DSO consolidation model that merges 6 to 10 practices under one brand with owners keeping equity and a 3 to 7 year exit path. The team has built 14 companies that made the Inc. 5000 list, positioning it as a small but high-impact operator in US dental business consulting.
 Activates in 180:24:05`;
 
@@ -39,6 +43,11 @@ async function ensureSingleTypeBlock(rootId, label, selectId, value) {
     if (!sel) { console.warn(`❌ ${label}: select not found after insert`); return; }
     if (sel.value) { console.log(`${label} already set (${sel.value}).`); return; }
     setAndFire(sel, value, 'change');
+    if (sel.value !== value) {
+        const opts = Array.from(sel.options).map(o => `${o.value}="${o.text}"`).join(', ');
+        console.warn(`⚠️ ${label}: "${value}" is not an option value. Options: ${opts}`);
+        return;
+    }
     console.log(`✓ ${label} = ${value}`);
 }
 
@@ -109,18 +118,18 @@ async function writeDraftail(hiddenInputId, text) {
 
     // 2. Standard fields
     const titleField = document.getElementById('id_title');
-    if (!titleField.value) setAndFire(titleField, `${groupName} Ransomware: ${victimName}`, 'input');
+    if (!titleField.value) setAndFire(titleField, `${groupName}${titleSeparator}${victimName}`, 'input');
     setAndFire(document.getElementById('id_tlp'), "1", 'change');          // GREEN
     setAndFire(document.getElementById('id_reliability'), "3", 'change');  // C - Fairly Reliable
     setAndFire(document.getElementById('id_confidence'), "3", 'change');   // 3 - Possibly true
 
     // 3. Tags
     jQuery('#id_target_tags').tagit('createTag', victimName);
-    jQuery('#id_source_name_tags').tagit('createTag', groupName);
-    jQuery('#id_actor_tags').tagit('createTag', groupName);
+    jQuery('#id_source_name_tags').tagit('createTag', sourceActorName);
+    jQuery('#id_actor_tags').tagit('createTag', sourceActorName);
     jQuery('#id_source_url_tags').tagit('createTag', onionUrl);
     jQuery('#id_language_tags').tagit('createTag', 'English');
-    ["DDW Ransomware", "DDW Victims", "PII Packages", "PII Sites", countryTag]
+    [ddwTag, "DDW Victims", "PII Packages", "PII Sites", countryTag]
         .forEach(tag => jQuery('#id_tags').tagit('createTag', tag));
 
     // 4. Region, Industry, Threat
@@ -128,7 +137,7 @@ async function writeDraftail(hiddenInputId, text) {
     for (let i = 0; i < industryValues.length; i++) {
         await ensureSingleTypeBlock('industry_tags-root', `Industry ${i + 1}`, `industry_tags-${i}-value`, industryValues[i]);
     }
-    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', 'ransomware');
+    await ensureSingleTypeBlock('threat_types-root', 'Threat', 'threat_types-0-value', threatType);
 
     // 5. Contents - Content block (Draftail)
     const existingContent = document.getElementById('contents-0-value');
@@ -189,5 +198,5 @@ async function writeDraftail(hiddenInputId, text) {
     document.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]').forEach((row, i) => {
         console.log(`IOC ${i}:`, row.querySelector('select[name$="-type"]')?.value, '=', row.querySelector('input[name$="-value"]')?.value);
     });
-    console.log("✅ Done! Add the Image block, check VERIFY, then Save Draft.");
+    console.log(`✅ Done! Add the Image block (title ${groupName}_${victimName.replace(/\s+/g, '')}_1), add a Relation if this victim already has a Needle from another group, check VERIFY, then Save Draft.`);
 })();
