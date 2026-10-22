@@ -219,7 +219,11 @@ until a nonprofit value is confirmed in Wagtail. 2026-10-20 Gentlemen batch gues
 distributor (Pantanal Agrícola) = "agriculture" (value NOT confirmed to exist — the script lists the options if it
 is missing); professional membership body (Engineers Ireland) = professional_services; freight brokerage (Axle
 Logistics) = logistics; rice/noodle producer (Thai HA) and paper mill (C.A.S. Paper Mill) = manufacturing;
-two-way-radio integrator (Petroleum Telcom) = communications; venture capital firm = financial_services.
+two-way-radio integrator (Petroleum Telcom) = communications; venture capital firm = financial_services. 2026-10-22: government museum
+(Museum Siam) and university (Saga University) = education; municipal regional-development company
+(REGiO-Nord) = professional_services (government if such a value exists); event/medical AV producer (SBI
+Audiovisuel) = professional_services (media value if one exists); executive-protection firm (Suhai Segurança
+Pessoal) = security; independent insurance agency (Adobe Insurance Brokers) = insurance.
 
 ## Threat group registry (onion source URLs)
 | Group | Source URL pattern | Notes |
@@ -294,12 +298,19 @@ if needed, reads VERIFY in the new tab's console, saves the draft, returns and c
 "Fill this tab" fills the next victim into the current add page; "Skip" moves on; re-pasting the
 file restarts the queue. Browsers may ask once to allow pop-ups for the admin host. Saving stays
 manual on purpose: the screenshot upload and the Relation cannot be scripted.
+Panel features added 2026-10-22 at the analyst's request: a red glowing checklist line ("check every
+detail and the DATE, add the leak screenshot, add a Relation"), ▶ on a row selects it as the next
+victim, ▲ ▼ reorder the queue, each row shows its content date in red when it is not today, and
+"Set dates to today" rewrites the "On <Month D, YYYY>," of every queued content paragraph (timer lines
+and the figure are untouched — update the figure in the scripts if the dashboard moved). After a fill
+the pointer moves to the next still-queued row.
 Verified 2026-10-20 against a mock of the Wagtail form (same ids, Draftail-style paste handler,
 StreamField + buttons, IOC InlinePanel) with Playwright: 7 victims filled in 7 fresh tabs, content
 synced, code block and IOC rows set, no page errors. The real admin has only been exercised with
 the single-victim scripts so far — the first live batch run should start with one victim.
-Built files so far: `batch/2026-10-20.js` (Storm ×3, Pear ×3, DragonForce, Wallstreet) and
-`batch/2026-10-20-the-gentlemen.js` (14 Gentlemen victims). One file per group batch keeps the queue short.
+Built files so far: `batch/2026-10-20.js` (Storm ×3, Pear ×3, DragonForce, Wallstreet),
+`batch/2026-10-20-the-gentlemen.js` (14 Gentlemen victims) and `batch/2026-10-22.js` (5 Gentlemen + 1 Pear).
+Rebuild every batch file with make-batch.js whenever the panel template or the base body changes.
 
 ## Per-victim deliverable to the analyst
 1. The filled text template (title, fields, content paragraph, code block, IOCs, tags).

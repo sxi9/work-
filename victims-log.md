@@ -58,3 +58,9 @@
 | 2026-10-20 | The Gentlemen | Engineers Ireland | Ireland / eu_russia | professional_services | engineersireland.ie (domain) | professional body; "an Ireland-based"; "nearly 25 percent" clause |
 | 2026-10-20 | The Gentlemen | Inovar Packaging Group | United States / us_canada | manufacturing | inovarpackaging.com (domain) | copyright line just "Inovar"; logo/LinkedIn "Inovar Packaging Group"; Irving, TX |
 | 2026-10-20 | The Gentlemen | Thai HA | Thailand / apac | manufacturing | kasetbrand.co.th (domain) | listed "Thai Ha PCL KASET"; copyright "Thai HA Public Company Limited"; "over 10 percent" APAC clause |
+| 2026-10-22 | The Gentlemen | Museum Siam | Thailand / apac | education | museumsiam.org (domain) | government museum (NDMI/OKMD); no description (museum); "over 10 percent" APAC clause; figure "close to 10,000" |
+| 2026-10-22 | The Gentlemen | REGiO-Nord | Germany / eu_russia | professional_services | regio-nord.com, arztidylle.de (domains) | listed "REGiO Nord"; site title "REGiO-Nord mbH"; Gransee, Brandenburg; arztidylle.de is a project site in the leak text |
+| 2026-10-22 | The Gentlemen | Saga University | Japan / apac | education | saga-u.ac.jp (domain) | no description (university) |
+| 2026-10-22 | The Gentlemen | SBI Audiovisuel | Canada / us_canada | professional_services | sbiav.com (domain) | listed "SBI Audiovisual Medinbox"; site 403; French brand kept; Saint-Bruno-de-Montarville, QC |
+| 2026-10-22 | The Gentlemen | Suhai Segurança Pessoal | Brazil / south_america | security | suhaiseguranca.com.br (domain) | listed "Suhai Segurana Pessoal" (typo); site header "SUHAI Segurança Pessoal"; "over 5 percent" clause |
+| 2026-10-22 | Pear | Adobe Insurance Brokers | United States / us_canada | insurance | adobebrokers.com (domain) | listed "Adobe Insurance Brokers, LLC"; copyright "Adobe Insurance Brokers"; Morgan Hill, CA; card date 19/10/2026 |
