@@ -1,7 +1,8 @@
-// Needles batch — built 2026-10-23 from 3 script(s):
+// Needles batch — built 2026-10-23 from 4 script(s):
 //   scripts/dragonforce_lane-equipment.js
 //   scripts/rhysida_dr-schnell.js
 //   scripts/the-gentlemen_inovar-packaging-group.js
+//   scripts/pear_fresh-farms.js
 //
 // How a built batch file works — paste it into the browser console (F12) on ANY Wagtail admin page:
 //  1. A green panel appears top-right listing the queued victims. The red glowing line is the
@@ -85,6 +86,28 @@ const QUEUE = [
       {
         "type": "domain",
         "value": "inovarpackaging.com"
+      }
+    ]
+  },
+  {
+    "victimName": "Fresh Farms",
+    "groupName": "Pear",
+    "sourceActorName": "Pear",
+    "titleSeparator": " Ransomware: ",
+    "threatType": "ransomware",
+    "ddwTag": "DDW Ransomware",
+    "countryTag": "United States",
+    "regionValue": "us_canada",
+    "industryValues": [
+      "agriculture"
+    ],
+    "onionUrl": "http://pearsmob5sn44ismokiusuld34pnfwi6ctgin3qbvonpoob4lh3rmtqd.onion/",
+    "contentText": "On October 23, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Fresh Farms, a United States-based grower and distributor of fresh produce. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "leakText": "Fresh Farms ANNOUNCED\nOffers a wide range of top-quality products that meet the needs of customers in the foodservice, retail, and industrial sectors, including export markets\nData Volume: 1 Tb\nShow more\nDate Company Notified: 10/20/2026\nSite: freshfarms.com.mx\nIndustry: Agriculture\nLocation: USA\nRevenue: $380M\nDetails",
+    "iocs": [
+      {
+        "type": "domain",
+        "value": "freshfarms.com.mx"
       }
     ]
   }
