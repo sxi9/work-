@@ -1,8 +1,8 @@
-// Sládek & partners — The Gentlemen Ransomware (October 20, 2026)
+// Sladek Partners — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: site title "Sládek & partners v.o.s. – advokátní kancelář" (v.o.s. stripped); body text uses "Mgr. Ivana Sládková, advokátní kancelář"
 
-const victimName = "Sládek & partners";
+const victimName = "Sladek Partners";
 const groupName = "The Gentlemen";
 const countryTag = "Czech Republic";
 const regionValue = "eu_russia";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Sládek & partners, a Czech Republic-based law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Sladek Partners, a Czech Republic-based law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.";
 
 const leakText = String.raw`Sladek Partners
 ak-sladek.cz Sladek & Partners Prague law firm operating as Mgr. Ivana Sládková, advokát (IČO 66252946), with 24 years of practice since 2002 — specializing in real estate transactions, divorce/family law, and attorney escrow (advokátní úschova). The firm's flagship claim: 500M CZK ($23M) held in escrow annually across 100+ segregated accounts, backed by 500M CZK insurance and 2–5 day payout guarantees. Led by Ivana Sládková (ČAK ev. č. 09496, Charles University, licensed for escrow since 2002, speaks English/German/Russian), with a tiny 3–5 person team (accountant + secretary). Listed in EPRAVO.CZ's notable law firm yearbooks (2013, 2016); pricing is quote-only (hourly/fixed/contingency), no published rates.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

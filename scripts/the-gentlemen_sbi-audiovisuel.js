@@ -1,8 +1,8 @@
-// SBI Audiovisuel — The Gentlemen Ransomware (October 22, 2026)
+// SBI Audiovisual Medinbox — The Gentlemen Ransomware (October 22, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: site returned 403; listing "SBI Audiovisual Medinbox" merges two brands — leak text and logo say "SBI Audiovisuel" (French spelling kept)
 
-const victimName = "SBI Audiovisuel";
+const victimName = "SBI Audiovisual Medinbox";
 const groupName = "The Gentlemen";
 const countryTag = "Canada";
 const regionValue = "us_canada";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting SBI Audiovisuel, a Canada-based audiovisual production company specializing in corporate events and live surgical broadcasts. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting SBI Audiovisual Medinbox, a Canada-based audiovisual production company for corporate events and live surgical broadcasts. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`SBI Audiovisual Medinbox
 sbiav.com SBI Audiovisuel is a Quebec AV company founded in 1991 (HQ in Saint-Bruno-de-Montarville, ~11 staff), doing corporate event production — sound, lighting, video, webcasting — plus its signature niche: live streaming of surgical operations for medical training. It deploys its own CASTER mobile system and claims exclusive North American rights to France's Medinbox tech, which is used at hospitals like Mount Sinai NY; note SBI is an integrator, not the tech's manufacturer. Public activity runs from 2018 through 2026 (US tours, medical congresses, hiring), with no lawsuits or scam signs found. Revenue is not disclosed — third-party estimates vary ($1–5M range), all unverified. Weak spots: no independent client reviews, no published certificates, and the site blurs its own brand with Medinbox's. For Quebec/Canada corporate events or live-surgery broadcasts it's a credible pick; for critical projects, verify team size, redundancy plans, and patient-data handling in writing.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

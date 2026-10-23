@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting North Bridge Venture Partners, a U.S.-based venture capital firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting North Bridge Venture Partners, a United States-based venture capital firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`North Bridge Venture Partners
 northbridge.com North Bridge Venture Partners one of Boston's most storied venture capital firms, founded in 1994 by Bill Geary, Doug Kingsley, Ed Anderson, Mike Pehl, and Richard D'Amore — ~$3.5B under management across 8 funds, ~200+ investments, 100+ exits, and 14 unicorns. Legendary portfolio: Demandware (sold to Salesforce for $2.8B), Starent Networks ($2.9B to Cisco), Proto Labs (IPO), Couchbase ($1.5B to Haveli, 2025), Quora, Salsify, Acquia ($1B to Vista), Actifio (to Google), Paydiant (to PayPal). Its growth-equity arm split off in 2018 as Guidepost Growth Equity ($1.1B+ AUM). Today the fund is in harvest mode — no new deals since 2021–2022, small remaining team, minimal website. May 2026: ransomware group DragonForce claimed to have stolen 22.9GB of internal files (unconfirmed by the firm). For startups seeking capital it's not an active option; for portfolio/LP diligence or the breach, it remains relevant.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

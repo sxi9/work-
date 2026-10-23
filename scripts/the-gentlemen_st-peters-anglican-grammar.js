@@ -1,8 +1,8 @@
-// St. Peter's Anglican Grammar — The Gentlemen Ransomware (October 20, 2026)
+// St Peters Anglican Primary School — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: official site stpeters.nsw.edu.au titles itself "St. Peter's Anglican Grammar"; the leak text domain stpeters.sa.edu.au is what the listing shows
 
-const victimName = "St. Peter's Anglican Grammar";
+const victimName = "St Peters Anglican Primary School";
 const groupName = "The Gentlemen";
 const countryTag = "Australia";
 const regionValue = "anzac";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting St. Peter's Anglican Grammar (formerly St Peter's Anglican Primary School), Australia. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 2 percent are based in the ANZAC region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting St Peters Anglican Primary School, Australia. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 2 percent are based in the ANZAC region.";
 
 const leakText = String.raw`St Peters Anglican Primary School
 stpeters.sa.edu.au St Peter's Anglican Grammar independent Anglican co-ed school in Campbelltown, NSW (est. 1983, revived parish school), teaching Pre-K to Year 6 (~428 students, ICSEA 1118 — 89th percentile nationally). It's part of the Campbelltown Anglican Schools Council (CASC) alongside Broughton Anglican College (P–12) and St Peter's Heart (special needs). Academics are solid: NAPLAN scores run ~33 points above the national average, SchoolRank rates it 69.3/100 ("Good", 129th in NSW), and it's one of only two IB PYP World Schools in the Macarthur region. Fees are modest — $9,400/yr (K–2) and $9,920/yr (Y3–6) — with generous sibling discounts up to 100%. Led by Principal Michelle McDonnell (2023–) under CEO Andrew Middleton; 39 teachers, 14.9:1 ratio, strong specialist programs (German, French, STEAM from K). The one major controversy: in July 2022 the council abruptly closed a just-launched high school (Years 7–12)
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

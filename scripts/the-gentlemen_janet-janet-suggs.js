@@ -1,8 +1,8 @@
-// Janet, Janet & Suggs — The Gentlemen Ransomware (October 20, 2026)
+// JJS Justice — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: copyright "Janet, Janet & Suggs, LLC" (LLC stripped); brand "JJS Justice" kept in parentheses
 
-const victimName = "Janet, Janet & Suggs";
+const victimName = "JJS Justice";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Janet, Janet & Suggs (JJS Justice), a U.S.-based plaintiff-side personal injury and medical malpractice law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting JJS Justice (Janet, Janet & Suggs), a United States-based plaintiff-side personal injury and medical malpractice law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`JJS Justice
 jjsjustice.com JJS Justice (Janet, Janet & Suggs, LLC) is a national plaintiff-side firm based in Baltimore/Pikesville, MD, founded 1996 (practice since 1978) — specializing in birth injuries/CP, medical malpractice, sexual abuse (clergy, USC/Johns Hopkins), mass torts, and whistleblower cases. Record: $3B+ in verdicts and settlements over 40 years, including the largest US sexual-abuse settlement ($852M vs. USC/Dr. Tyndall, 2021), $190M vs. Johns Hopkins, $225M NJ v. ExxonMobil, and multiple record birth-injury verdicts. Led since Sept 2025 by Andrew S. Janet after founder Howard A. Janet died at 70; core team includes Kenneth M. Suggs (ex-ATLA president) and Dr. Giles Manley (OBGYN turned lawyer). Chambers USA Band 2 (MD plaintiffs), Best Lawyers "Lawyer of the Year" 2025, Super Lawyers, Lawdragon 500, AV Preeminent, ABOTA. Contingency model (no fee unless they win), 10+ states + DC, ~17 lawyers, ~60 staff.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

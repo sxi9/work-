@@ -1,4 +1,4 @@
-// Needles batch — built 2026-10-22 from 6 script(s):
+// Needles batch — built 2026-10-23 from 6 script(s):
 //   scripts/the-gentlemen_museum-siam.js
 //   scripts/the-gentlemen_regio-nord.js
 //   scripts/the-gentlemen_saga-university.js
@@ -17,6 +17,8 @@
 //  4. Click "Open & fill next": a new tab opens on the add page and is filled from this tab.
 //     Same-origin tabs allow that — nothing is injected into Wagtail, no extension is needed.
 //     The browser may ask once to allow pop-ups for the admin host.
+//     Each row has a Source URL field: paste the listing's own onion link there (rows that still
+//     carry only the site root are marked in red) before clicking fill.
 //  5. In the new tab: add the Image block, add a Relation if the victim already has a Needle,
 //     read VERIFY in that tab's console, Save draft. Come back here and click again.
 //  "Fill this tab" fills the next victim into the current tab instead (when you already sit
@@ -46,7 +48,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "REGiO-Nord",
+    "victimName": "REGiO Nord",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -58,7 +60,7 @@ const QUEUE = [
       "professional_services"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting REGiO-Nord, a Germany-based municipal regional development company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.",
+    "contentText": "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting REGiO Nord, a Germany-based municipal regional development company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.",
     "leakText": "REGiO Nord\nregio-nord.com REGiO-Nord mbH (HRB 1203, Amtsgericht Neuruppin) is a municipal regional-development company in Gransee, Brandenburg, founded 2008–2009 to run the shared \"Mittelzentrum\" of Gransee–Zehdenick–Fürstenberg/Havel. It is 100% publicly owned (Zehdenick 1/3, Fürstenberg 1/3, Gransee 1/6, Amt Gransee 1/6), led by sole managing director Olaf Bechert with a staff of ~5 plus two tourist info offices. Its real money flows through the Kooperationsfonds — ~€8.9M in projects since 2008, with €538K spent in 2025 and €563K budgeted for 2026, of which €312K funds the company's own coordination work. Four workstreams: education (teacher recruitment, apprenticeship exchange), economy (business services, doctor recruitment, arztidylle.de), tourism (two info stations, region portals, RegioApp), and regional marketing (REGiO-Card, library network). Finances are project-transparent (open budget reports) but the GmbH's own annual accounts are only public through 2022 — request 2023–2025.\nActivates in 60:53:16",
     "iocs": [
       {
@@ -94,7 +96,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "SBI Audiovisuel",
+    "victimName": "SBI Audiovisual Medinbox",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -106,7 +108,7 @@ const QUEUE = [
       "professional_services"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting SBI Audiovisuel, a Canada-based audiovisual production company specializing in corporate events and live surgical broadcasts. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting SBI Audiovisual Medinbox, a Canada-based audiovisual production company for corporate events and live surgical broadcasts. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "SBI Audiovisual Medinbox\nsbiav.com SBI Audiovisuel is a Quebec AV company founded in 1991 (HQ in Saint-Bruno-de-Montarville, ~11 staff), doing corporate event production — sound, lighting, video, webcasting — plus its signature niche: live streaming of surgical operations for medical training. It deploys its own CASTER mobile system and claims exclusive North American rights to France's Medinbox tech, which is used at hospitals like Mount Sinai NY; note SBI is an integrator, not the tech's manufacturer. Public activity runs from 2018 through 2026 (US tours, medical congresses, hiring), with no lawsuits or scam signs found. Revenue is not disclosed — third-party estimates vary ($1–5M range), all unverified. Weak spots: no independent client reviews, no published certificates, and the site blurs its own brand with Medinbox's. For Quebec/Canada corporate events or live-surgery broadcasts it's a credible pick; for critical projects, verify team size, redundancy plans, and patient-data handling in writing.\nActivates in 59:56:23",
     "iocs": [
       {
@@ -116,7 +118,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Suhai Segurança Pessoal",
+    "victimName": "Suhai Segurana Pessoal",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -128,7 +130,7 @@ const QUEUE = [
       "security"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Suhai Segurança Pessoal, a Brazil-based personal and executive protection security company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.",
+    "contentText": "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Suhai Segurana Pessoal, a Brazil-based personal and executive protection security company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.",
     "leakText": "Suhai Segurana Pessoal\nsuhaiseguranca.com.br Suhai Segurança Pessoal Brazilian personal security company founded in 1992 — one of the older, established firms in its niche. Core business: bodyguard/executive protection, family and residential security, security drivers, and corporate guarding, delivered nationwide. Teams are described as vetted, licensed professionals backed by 24/7 monitoring and in-house tactical training. The firm claims ISO 9001 and Great Place to Work certification, but doesn't publish certificates — claims are self-reported. No revenue, pricing, or verified headcount is public; everything is custom-quoted per job. Critically: since Brazil's 2024 law, security work is only legal if the firm holds a current federal police permit for that specific service and state — confirm yours before hiring. Also beware the unrelated \"Suhai\" auto insurer sharing the name — most complaints you'll find online are about insurance, not this company.\nActivates in 59:38:11",
     "iocs": [
       {
@@ -138,7 +140,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Adobe Insurance Brokers",
+    "victimName": "Adobe Insurance Brokers, LLC",
     "groupName": "Pear",
     "sourceActorName": "Pear",
     "titleSeparator": " Ransomware: ",
@@ -150,7 +152,7 @@ const QUEUE = [
       "insurance"
     ],
     "onionUrl": "http://pearsmob5sn44ismokiusuld34pnfwi6ctgin3qbvonpoob4lh3rmtqd.onion/",
-    "contentText": "On October 22, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Adobe Insurance Brokers, a U.S.-based independent insurance agency. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 22, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Adobe Insurance Brokers, LLC, a United States-based insurance agency. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Adobe Insurance Brokers, LLC ANNOUNCED\nIndependent insurance agency located in Morgan Hill, California\nData Volume: 304 Gb\nShow more\nDate Company Notified: 19/10/2026\nSite: adobebrokers.com\nIndustry: Insurance\nLocation: USA\nRevenue: $5M\nDetails",
     "iocs": [
       {
@@ -342,7 +344,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');
@@ -379,6 +381,8 @@ async function fillNeedle(cfg, win = window) {
       #zf-batch-panel .zf-date { color:#555; font-weight:normal; }
       #zf-batch-panel .zf-date.zf-bad { color:#c00; font-weight:bold; }
       #zf-batch-panel .zf-note { font-weight:normal; color:#a00; white-space:pre-wrap; }
+      #zf-batch-panel .zf-url { display:flex; gap:4px; align-items:center; margin-top:2px; font-size:11px; color:#555; flex-wrap:wrap; }
+      #zf-batch-panel .zf-url input { flex:1; min-width:180px; font-size:11px; padding:2px; }
     `;
     document.head.appendChild(style);
 
@@ -391,7 +395,7 @@ async function fillNeedle(cfg, win = window) {
       <div style="display:flex;justify-content:space-between;align-items:center">
         <b>Needles batch (${QUEUE.length} victims)</b><button data-x title="Close panel">✕</button>
       </div>
-      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), and add a Relation if the victim already has a Needle.</div>
+      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), use the listing's own onion link as Source URL (per-row field below), and add a Relation if the victim already has a Needle.</div>
       <label style="display:block;margin:8px 0 4px">Add Needle page URL</label>
       <input data-url style="width:100%;box-sizing:border-box;padding:4px" placeholder="https://intel-api.zerofox.com/wagtail/admin/pages/add/.../">
       <div style="margin:8px 0;display:flex;gap:6px;flex-wrap:wrap">
@@ -429,7 +433,10 @@ async function fillNeedle(cfg, win = window) {
             const ctrls = `<button data-sel="${i}" title="Fill this one next">▶</button><button data-up="${i}" title="Move up">▲</button><button data-down="${i}" title="Move down">▼</button>`;
             const date = `<span class="zf-date${bad ? ' zf-bad' : ''}">(content date ${esc(d)}${bad ? ' ≠ today' : ''})</span>`;
             const note = r.note ? `<div class="zf-note">${esc(r.note)}</div>` : '';
-            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${note}</li>`;
+            const isRoot = /^https?:\/\/[^/]+\/?(blog\/?)?$/i.test(c.onionUrl);
+            const urlRow = `<div class="zf-url"><span>Source URL</span><input data-url-i="${i}" value="${esc(c.onionUrl)}" title="Paste the listing's own onion link here before filling">`
+                + (isRoot ? `<span class="zf-date zf-bad">site root — paste the listing's own link</span>` : '') + `</div>`;
+            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${urlRow}${note}</li>`;
         }).join('');
         q('[data-next]').disabled = q('[data-here]').disabled = q('[data-skip]').disabled = busy() || finished();
         q('[data-dates]').disabled = busy();
@@ -491,6 +498,12 @@ async function fillNeedle(cfg, win = window) {
             + `add a Relation if needed, check VERIFY in its console, Save draft. Then click "Open & fill next".`);
     }
 
+    q('[data-list]').addEventListener('change', e => {
+        const inp = e.target.closest('input[data-url-i]');
+        if (!inp) return;
+        QUEUE[+inp.dataset.urlI].onionUrl = inp.value.trim();
+        render();
+    });
     q('[data-list]').addEventListener('click', e => {
         const b = e.target.closest('button');
         if (!b || busy()) return;

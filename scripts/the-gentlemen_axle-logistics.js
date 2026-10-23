@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Axle Logistics, a U.S.-based freight brokerage. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Axle Logistics, a United States-based freight brokerage. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`Axle Logistics
 axlelogistics.com Axle Logistics non-asset freight brokerage founded in 2012 in Knoxville, Tennessee, by Drew Johnson and Jon Clay — two University of Tennessee grads who started with two people and one trucking software license. It organizes truckload, LTL, intermodal, and port drayage shipments across the US, Canada, and Mexico by matching loads with third-party carriers, focusing on Fortune 500 shippers and mid-market brands. Revenue exploded from $80M (2018) to over $1.2B gross / $159M net (2025), and headcount grew from 2 to roughly 700 — making it one of the fastest-scaling brokers in the country. It's landed on the Inc. 5000 list over a decade straight, ranked #52 among Transport Topics' top 50 logistics companies, and won Knoxville Top Workplaces seven years running. The company invested $38M in a gleaming new 84,000 sq ft HQ with state support and pays employees an average of ~$117K/year. It's a brokerage, not a carrier — so shipment quality depends on the carriers.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

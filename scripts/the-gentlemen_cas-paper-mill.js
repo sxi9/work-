@@ -1,8 +1,8 @@
-// C.A.S. Paper Mill — The Gentlemen Ransomware (October 20, 2026)
+// CAS Paper Mill — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: site unreachable (503); trade press and the leak text use "C.A.S. Paper Mill Co., Ltd." (Co., Ltd. stripped)
 
-const victimName = "C.A.S. Paper Mill";
+const victimName = "CAS Paper Mill";
 const groupName = "The Gentlemen";
 const countryTag = "Thailand";
 const regionValue = "apac";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting C.A.S. Paper Mill, a Thailand-based paper manufacturer. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting CAS Paper Mill, a Thailand-based paper manufacturer. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
 
 const leakText = String.raw`CAS Paper Mill
 caspapermill.com C.A.S. Paper Mill Co., Ltd. is a Thai paper manufacturer in Singburi (est. 1990, operating since 1994), part of the Charoen Aksorn Group — Thailand's largest paper distributor, backed by Bangkok Bank and Vacharaphol. It produces 130,000 MT/yr of newsprint, printing and kraft paper plus 30,000 MT/yr of tissue (Toscotec line, 2022), from 100% recycled US/Canadian waste paper. Zero-liquid-discharge since 1994, 10 MWp floating solar; ISO 9001/14001/45001, TIS 758, FSC C125297. Exports: Vietnam, Philippines, Pakistan. Revenue est. $80–150M (~300 staff), but fell ~10% in 2025 as newsprint demand declines. Main red flag: 2018 villagers' protest over alleged coal pollution affecting 10,000+ residents, and denial of a license for the coal expansion.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

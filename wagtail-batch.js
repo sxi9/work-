@@ -13,6 +13,8 @@
 //  4. Click "Open & fill next": a new tab opens on the add page and is filled from this tab.
 //     Same-origin tabs allow that — nothing is injected into Wagtail, no extension is needed.
 //     The browser may ask once to allow pop-ups for the admin host.
+//     Each row has a Source URL field: paste the listing's own onion link there (rows that still
+//     carry only the site root are marked in red) before clicking fill.
 //  5. In the new tab: add the Image block, add a Relation if the victim already has a Needle,
 //     read VERIFY in that tab's console, Save draft. Come back here and click again.
 //  "Fill this tab" fills the next victim into the current tab instead (when you already sit
@@ -43,6 +45,8 @@ const QUEUE = /*__QUEUE__*/[];
       #zf-batch-panel .zf-date { color:#555; font-weight:normal; }
       #zf-batch-panel .zf-date.zf-bad { color:#c00; font-weight:bold; }
       #zf-batch-panel .zf-note { font-weight:normal; color:#a00; white-space:pre-wrap; }
+      #zf-batch-panel .zf-url { display:flex; gap:4px; align-items:center; margin-top:2px; font-size:11px; color:#555; flex-wrap:wrap; }
+      #zf-batch-panel .zf-url input { flex:1; min-width:180px; font-size:11px; padding:2px; }
     `;
     document.head.appendChild(style);
 
@@ -55,7 +59,7 @@ const QUEUE = /*__QUEUE__*/[];
       <div style="display:flex;justify-content:space-between;align-items:center">
         <b>Needles batch (${QUEUE.length} victims)</b><button data-x title="Close panel">✕</button>
       </div>
-      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), and add a Relation if the victim already has a Needle.</div>
+      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), use the listing's own onion link as Source URL (per-row field below), and add a Relation if the victim already has a Needle.</div>
       <label style="display:block;margin:8px 0 4px">Add Needle page URL</label>
       <input data-url style="width:100%;box-sizing:border-box;padding:4px" placeholder="https://intel-api.zerofox.com/wagtail/admin/pages/add/.../">
       <div style="margin:8px 0;display:flex;gap:6px;flex-wrap:wrap">
@@ -93,7 +97,10 @@ const QUEUE = /*__QUEUE__*/[];
             const ctrls = `<button data-sel="${i}" title="Fill this one next">▶</button><button data-up="${i}" title="Move up">▲</button><button data-down="${i}" title="Move down">▼</button>`;
             const date = `<span class="zf-date${bad ? ' zf-bad' : ''}">(content date ${esc(d)}${bad ? ' ≠ today' : ''})</span>`;
             const note = r.note ? `<div class="zf-note">${esc(r.note)}</div>` : '';
-            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${note}</li>`;
+            const isRoot = /^https?:\/\/[^/]+\/?(blog\/?)?$/i.test(c.onionUrl);
+            const urlRow = `<div class="zf-url"><span>Source URL</span><input data-url-i="${i}" value="${esc(c.onionUrl)}" title="Paste the listing's own onion link here before filling">`
+                + (isRoot ? `<span class="zf-date zf-bad">site root — paste the listing's own link</span>` : '') + `</div>`;
+            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${urlRow}${note}</li>`;
         }).join('');
         q('[data-next]').disabled = q('[data-here]').disabled = q('[data-skip]').disabled = busy() || finished();
         q('[data-dates]').disabled = busy();
@@ -155,6 +162,12 @@ const QUEUE = /*__QUEUE__*/[];
             + `add a Relation if needed, check VERIFY in its console, Save draft. Then click "Open & fill next".`);
     }
 
+    q('[data-list]').addEventListener('change', e => {
+        const inp = e.target.closest('input[data-url-i]');
+        if (!inp) return;
+        QUEUE[+inp.dataset.urlI].onionUrl = inp.value.trim();
+        render();
+    });
     q('[data-list]').addEventListener('click', e => {
         const b = e.target.closest('button');
         if (!b || busy()) return;

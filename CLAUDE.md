@@ -16,8 +16,15 @@ refined over many entries and the examples in `victims-log.md`.
 - If the group is missing, ask or default to the most recent group used, and say so.
 
 ## Naming rules
-- **Victim name = the name as shown on the victim's own LinkedIn or website copyright
-  line**, with corporate suffixes stripped (no Inc, LLC, LLP, Ltd, Ltée, s.r.o., SAS, AB,
+- **ANALYST RULE 2026-10-23 (supersedes the copyright-line rule below): the victim name is EXACTLY
+  what the leak listing shows — same casing, punctuation and suffix** ("SONGWOOI", "Thai Ha PCL KASET",
+  "LANE EQUIPMENT", "DR.SCHNELL GmbH & Co. KGaA", "Adobe Insurance Brokers, LLC", "Entry Systems Garage
+  Doors Gates", even a listing typo such as "Suhai Segurana Pessoal"). Title, target tag and content use
+  that string. Website/LinkedIn research still drives the description, country and industry; the brand
+  or legal name may follow in parentheses in the content ("JJS Justice (Janet, Janet & Suggs)"). Everything
+  below about copyright-line names applies only to entries published before 2026-10-23.
+- (superseded) Victim name = the name as shown on the victim's own LinkedIn or website copyright
+  line, with corporate suffixes stripped (no Inc, LLC, LLP, Ltd, Ltée, s.r.o., SAS, AB,
   GmbH, etc.). Examples: "Machine sro" → **K2 Machine**; "Campbell Rhea" → **CampbellRhea**
   (website spells it one word); **Taiwan Otsuka Pharmaceutical Co.** (published name keeps
   "Co."). Do independent research on the victim's site/LinkedIn — do not rely only on the
@@ -56,7 +63,13 @@ refined over many entries and the examples in `victims-log.md`.
 - **Unidentifiable target** (published NightSpire example): `targeting "Colorado Texas."
   However, at the time of reporting, the intended target remains unclear due to the lack of
   unique identifiers.` then the stats sentence. No "a [country]-based ..." description.
-- Description is ONE plain descriptive phrase ("a U.S.-based office furniture manufacturer").
+- **ANALYST RULES 2026-10-23:** never use the words "independent", "certified" or "specializing" (or
+  similar marketing qualifiers — leading, trusted, prominent) in the description; write "a United
+  States-based ...", never "U.S.-based" — the country is spelled out in full inside the description
+  ("United States-based", "United Kingdom-based", "the United States government"). The fixed stats
+  clause keeps its published wording "U.S.-Canada region". A "for ..." tail replaces "specializing in"
+  ("a Canada-based audiovisual production company for corporate events and live surgical broadcasts").
+- Description is ONE plain descriptive phrase ("a United States-based office furniture manufacturer").
   A short "specializing in / offering / serving ..." tail is acceptable (published: "a
   U.S.-based IT consulting and technology services company specializing in digital
   transformation, AI, automation, and business process outsourcing"; "a Costa Rica-based
@@ -149,6 +162,9 @@ text template handed to the analyst lists them in the same order: content paragr
   ("OAKGROVETECH"), "Publicated files: click here to go", the www and bare domain lines, data size,
   "Description" heading, the write-up (keep its blank line and em dashes), and the post date last
   ("2 October 2026"). The embedded screenshot of the victim's own website is an image — not transcribed.
+- Identify the group from the LAYOUT when the analyst's label conflicts with it (2026-10-23: a
+  "Publication (www.x.com)" modal was labelled rhysida and an auction page with "Price: 15 BTC" was labelled
+  dragonforce; trackers confirmed DragonForce and Rhysida respectively). Say so in the flags.
 - Wallstreet listings (2026-10-20 capture) are a modal: name line, "ENDS IN 00h 00m 00s" on one line,
   the data-type icon row as one line ("DOCUMENTS EMAILS CREDENTIALS PERSONAL DATA MEDIA"),
   "CONFIDENTIAL", the files path ("/f/26f867268d737afeef80cf68"), then the description paragraph.
@@ -168,6 +184,10 @@ text template handed to the analyst lists them in the same order: content paragr
   "INC Ransom").
 - Source URL(s): the **victim-specific listing URL** where the site has one (see registry
   patterns), not just the site root.
+  **ANALYST RULE 2026-10-23: never forget the individual onion link.** When the screenshot does not
+  show the listing's own URL, the script carries the site root AND the batch panel shows a per-row
+  "Source URL" field marked red ("site root — paste the listing's own link") so the analyst pastes the
+  address-bar link before filling; the fill uses whatever is in that field.
 - Image block: leak-site screenshot added manually by the analyst, titled
   `[Group]_[VictimNameNoSpaces]_1` — `n0n_EvolutionSpine_1`, `Vexy_Data-CoreSystems_1`,
   `INC_Coopecaja_1`, `Everest_BrennerBasistunnelBBTSE_1` (HPC kept underscores for spaces:
@@ -237,7 +257,8 @@ Pessoal) = security; independent insurance agency (Adobe Insurance Brokers) = in
 | Everest | http://everestndkvzcibcje2cqxhre2hmmybl3rn2gwzwsblz7gx6uryn5rad.onion/news/<victim-slug> | Data Breach; title "Everest: X"; tag "DDW Communications"; e.g. /news/brenner-base-tunnel (two other published Everest entries left Source URL blank — fill it when the listing URL is known) |
 | Storm | http://yqhecvqtdvq6p7duqcgw2qca77spbgakxcoibtx6zpvfshltsbbbhfqd.onion/ | Ransomware; title "Storm Ransomware: X"; each listing is its own detail page ("← Back" link) but the per-victim path has not been captured yet — use the site root unless the analyst copies the listing URL from the address bar; first entries 2026-10-20 (Patriot Maritime, Baltimore Tank Lines, Merit Financial Group) |
 | Pear | http://pearsmob5sn44ismokiusuld34pnfwi6ctgin3qbvonpoob4lh3rmtqd.onion/ | Ransomware per analyst ("pear ransomware"); title "Pear Ransomware: X", group cased "Pear" (trackers write pear/PEAR; the group styles itself "Pure Extraction And Ransom (PEAR) Team" and Halcyon calls it data-theft-only, so switch to the Everest format only if the analyst says so). Cards have a "Details" link to a per-victim page — path not captured yet, site root used; first entries 2026-10-20 (Caretaker Landscape and Tree Management, Solar Communications International, Macfarlan Capital Partners) |
-| DragonForce | http://xjhmtitnrdrgzw4vmsghirdoo2fk35a3tzj4enlmah4pvehdspydsiyd.onion/blog | Ransomware (RaaS); one word, capital F ("DragonForce", analyst wrote "dragon force"); listings open as a "Publication (www.victim.com)" modal on the blog — per-victim path not captured, /blog used; first entry 2026-10-20 (Oak Grove Technologies) |
+| DragonForce | http://xjhmtitnrdrgzw4vmsghirdoo2fk35a3tzj4enlmah4pvehdspydsiyd.onion/blog | Ransomware (RaaS); one word, capital F ("DragonForce", analyst wrote "dragon force"); listings open as a "Publication (www.victim.com)" modal on the blog — per-victim path not captured, /blog used; first entry 2026-10-20 (Oak Grove Technologies); 2026-10-23 LANE EQUIPMENT modal variant: red bar "Publication: 4 days 19:12:01", site, street address, size, Description, post date — same transcription order |
+| Rhysida | http://rhysidafohrhyy2aszi7bm32tnjat5xri65fopcxkdfxhi4tidsg7cad.onion/ | Ransomware; title "Rhysida Ransomware: X"; listing is an auction modal: name line (window title), name line again (link heading), the data write-up lines, the bidding boilerplate ("With just 7 days on the clock, seize the opportunity to bid ..."), "Price: N BTC" last; sample document images not transcribed; per-victim path not captured — paste the listing link in the panel; first entry 2026-10-23 (DR.SCHNELL GmbH & Co. KGaA) |
 
 ## Console script (`wagtail-autofill.js`)
 Fill the variables block at the top per victim and paste the whole file into the browser
@@ -304,12 +325,17 @@ victim, ▲ ▼ reorder the queue, each row shows its content date in red when i
 "Set dates to today" rewrites the "On <Month D, YYYY>," of every queued content paragraph (timer lines
 and the figure are untouched — update the figure in the scripts if the dashboard moved). After a fill
 the pointer moves to the next still-queued row.
+2026-10-23: each row also has an editable "Source URL" field (red note while it is only the site
+root); edits go straight into the queue config and the fill uses them. The image title now strips
+punctuation as well as spaces (`DragonForce_LANEEQUIPMENT_1`, `Pear_AdobeInsuranceBrokersLLC_1`).
 Verified 2026-10-20 against a mock of the Wagtail form (same ids, Draftail-style paste handler,
 StreamField + buttons, IOC InlinePanel) with Playwright: 7 victims filled in 7 fresh tabs, content
 synced, code block and IOC rows set, no page errors. The real admin has only been exercised with
 the single-victim scripts so far — the first live batch run should start with one victim.
 Built files so far: `batch/2026-10-20.js` (Storm ×3, Pear ×3, DragonForce, Wallstreet),
-`batch/2026-10-20-the-gentlemen.js` (14 Gentlemen victims) and `batch/2026-10-22.js` (5 Gentlemen + 1 Pear).
+`batch/2026-10-20-the-gentlemen.js` (13 Gentlemen victims), `batch/2026-10-22.js` (5 Gentlemen + 1 Pear) and
+`batch/2026-10-23.js` (LANE EQUIPMENT/DragonForce, DR.SCHNELL/Rhysida, Inovar re-send). All rebuilt 2026-10-23 with
+the verbatim listing names and the new wording rules.
 Rebuild every batch file with make-batch.js whenever the panel template or the base body changes.
 
 ## Per-victim deliverable to the analyst

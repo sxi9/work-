@@ -1,8 +1,8 @@
-// Suhai Segurança Pessoal — The Gentlemen Ransomware (October 22, 2026)
+// Suhai Segurana Pessoal — The Gentlemen Ransomware (October 22, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: listing misspells "Segurana"; site header "SUHAI Segurança Pessoal" (wordmark caps), LinkedIn suhai-segurancapessoal; offices São Paulo and Rio de Janeiro
 
-const victimName = "Suhai Segurança Pessoal";
+const victimName = "Suhai Segurana Pessoal";
 const groupName = "The Gentlemen";
 const countryTag = "Brazil";
 const regionValue = "south_america";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Suhai Segurança Pessoal, a Brazil-based personal and executive protection security company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.";
+const contentText = "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Suhai Segurana Pessoal, a Brazil-based personal and executive protection security company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.";
 
 const leakText = String.raw`Suhai Segurana Pessoal
 suhaiseguranca.com.br Suhai Segurança Pessoal Brazilian personal security company founded in 1992 — one of the older, established firms in its niche. Core business: bodyguard/executive protection, family and residential security, security drivers, and corporate guarding, delivered nationwide. Teams are described as vetted, licensed professionals backed by 24/7 monitoring and in-house tactical training. The firm claims ISO 9001 and Great Place to Work certification, but doesn't publish certificates — claims are self-reported. No revenue, pricing, or verified headcount is public; everything is custom-quoted per job. Critically: since Brazil's 2024 law, security work is only legal if the firm holds a current federal police permit for that specific service and state — confirm yours before hiring. Also beware the unrelated "Suhai" auto insurer sharing the name — most complaints you'll find online are about insurance, not this company.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

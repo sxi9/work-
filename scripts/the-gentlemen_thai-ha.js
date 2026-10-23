@@ -1,8 +1,8 @@
-// Thai HA — The Gentlemen Ransomware (October 20, 2026)
+// Thai Ha PCL KASET — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: copyright "Thai HA Public Company Limited" (suffix stripped, "HA" casing kept); listing "Thai Ha PCL KASET"
 
-const victimName = "Thai HA";
+const victimName = "Thai Ha PCL KASET";
 const groupName = "The Gentlemen";
 const countryTag = "Thailand";
 const regionValue = "apac";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Thai HA, a Thailand-based rice and noodle producer and exporter. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Thai Ha PCL KASET, a Thailand-based rice and noodle producer and exporter. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
 
 const leakText = String.raw`Thai Ha PCL KASET
 kasetbrand.co.th Thai Ha PCL (SET: KASET) is a Thai public company founded 1993, listed since 2005, exporting jasmine rice, mung bean noodles, and snacks (brands KASET, SMART CHEF, IMPERIAL TASTE) to 80+ countries — the US is its largest market (902+ shipments, active as of Oct 2026). Core assets: a rice mill in Nakhon Pathom (100K tons/yr capacity) and a noodle factory in Nakhon Sawan; certified BRC Grade A+, US FDA, Halal, KOSHER, SMETA. The family Tangpiroonthum controls ~42% via Cheer Group Holdings, CEO Somroek Tangpiroonthum in place since 2004. But financially it's been bleeding: revenue fell from ฿611M (2020) to ฿302M (2025), six consecutive years of losses totaling ~฿330M, negative operating cash flow, debt/equity ~143%. A turnaround plan launched in 2024 — including halving par value (฿1.00→฿0.50) to wipe ~฿139M accumulated deficit — is narrowing losses (Q2 2026 –66% YoY) but the company is still unprofitable.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

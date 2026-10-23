@@ -1,8 +1,8 @@
-// Pantanal Agrícola — The Gentlemen Ransomware (October 20, 2026)
+// Pantanal Agricola — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: site unreachable (503); name from the logo/leak text "Pantanal Agrícola S.A." (S.A. stripped); industry value "agriculture" unverified
 
-const victimName = "Pantanal Agrícola";
+const victimName = "Pantanal Agricola";
 const groupName = "The Gentlemen";
 const countryTag = "Brazil";
 const regionValue = "south_america";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Pantanal Agrícola, a Brazil-based agricultural input distributor. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Pantanal Agricola, a Brazil-based agricultural input distributor. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.";
 
 const leakText = String.raw`Pantanal Agricola
 pantanalagricola.com.br Pantanal Agrícola S.A. is a Brazilian agri-input distributor (crop protection, fertilizers, seeds) founded in 2001 in São Gabriel do Oeste, Mato Grosso do Sul — 19 legal units, 15-16 stores across MS/MT/GO, ~300 employees, serving 64+ municipalities and 5 million hectares of farmland. Partners include BASF, Corteva, FMC, Sumitomo, ICL, and Brevant; the business model centers on barter (inputs repaid with grain) plus agronomic advisory. The headline event: Bunge signed an MOU in Nov 2021 to acquire a minority stake, adding grain-storage and trading muscle. It finances heavily through agri-receivables certificates (8 CRA/CDCA deals since 2019, ~R$217M+, incl. R$145M in 2025 via Ecoagro and a tokenized CDCA with Banco BV). Corporate governance is professionalizing — SA fechada since 2019, board expanded with independents in 2025-26, new CFO Flávio Sales (2025); founder-CEO Jonis Assmann still leads, with second generation (Bruno Franciosi) in management.
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

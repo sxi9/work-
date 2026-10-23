@@ -1,4 +1,4 @@
-// Needles batch — built 2026-10-22 from 14 script(s):
+// Needles batch — built 2026-10-23 from 13 script(s):
 //   scripts/the-gentlemen_sladek-partners.js
 //   scripts/the-gentlemen_pantanal-agricola.js
 //   scripts/the-gentlemen_janet-janet-suggs.js
@@ -11,7 +11,6 @@
 //   scripts/the-gentlemen_axle-logistics.js
 //   scripts/the-gentlemen_north-bridge-venture-partners.js
 //   scripts/the-gentlemen_engineers-ireland.js
-//   scripts/the-gentlemen_inovar-packaging-group.js
 //   scripts/the-gentlemen_thai-ha.js
 //
 // How a built batch file works — paste it into the browser console (F12) on ANY Wagtail admin page:
@@ -25,6 +24,8 @@
 //  4. Click "Open & fill next": a new tab opens on the add page and is filled from this tab.
 //     Same-origin tabs allow that — nothing is injected into Wagtail, no extension is needed.
 //     The browser may ask once to allow pop-ups for the admin host.
+//     Each row has a Source URL field: paste the listing's own onion link there (rows that still
+//     carry only the site root are marked in red) before clicking fill.
 //  5. In the new tab: add the Image block, add a Relation if the victim already has a Needle,
 //     read VERIFY in that tab's console, Save draft. Come back here and click again.
 //  "Fill this tab" fills the next victim into the current tab instead (when you already sit
@@ -32,7 +33,7 @@
 
 const QUEUE = [
   {
-    "victimName": "Sládek & partners",
+    "victimName": "Sladek Partners",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -44,7 +45,7 @@ const QUEUE = [
       "legal_consulting"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Sládek & partners, a Czech Republic-based law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Sladek Partners, a Czech Republic-based law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.",
     "leakText": "Sladek Partners\nak-sladek.cz Sladek & Partners Prague law firm operating as Mgr. Ivana Sládková, advokát (IČO 66252946), with 24 years of practice since 2002 — specializing in real estate transactions, divorce/family law, and attorney escrow (advokátní úschova). The firm's flagship claim: 500M CZK ($23M) held in escrow annually across 100+ segregated accounts, backed by 500M CZK insurance and 2–5 day payout guarantees. Led by Ivana Sládková (ČAK ev. č. 09496, Charles University, licensed for escrow since 2002, speaks English/German/Russian), with a tiny 3–5 person team (accountant + secretary). Listed in EPRAVO.CZ's notable law firm yearbooks (2013, 2016); pricing is quote-only (hourly/fixed/contingency), no published rates.\nActivates in 101:48:56",
     "iocs": [
       {
@@ -54,7 +55,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Pantanal Agrícola",
+    "victimName": "Pantanal Agricola",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -66,7 +67,7 @@ const QUEUE = [
       "agriculture"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Pantanal Agrícola, a Brazil-based agricultural input distributor. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Pantanal Agricola, a Brazil-based agricultural input distributor. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 5 percent are based in the South America region.",
     "leakText": "Pantanal Agricola\npantanalagricola.com.br Pantanal Agrícola S.A. is a Brazilian agri-input distributor (crop protection, fertilizers, seeds) founded in 2001 in São Gabriel do Oeste, Mato Grosso do Sul — 19 legal units, 15-16 stores across MS/MT/GO, ~300 employees, serving 64+ municipalities and 5 million hectares of farmland. Partners include BASF, Corteva, FMC, Sumitomo, ICL, and Brevant; the business model centers on barter (inputs repaid with grain) plus agronomic advisory. The headline event: Bunge signed an MOU in Nov 2021 to acquire a minority stake, adding grain-storage and trading muscle. It finances heavily through agri-receivables certificates (8 CRA/CDCA deals since 2019, ~R$217M+, incl. R$145M in 2025 via Ecoagro and a tokenized CDCA with Banco BV). Corporate governance is professionalizing — SA fechada since 2019, board expanded with independents in 2025-26, new CFO Flávio Sales (2025); founder-CEO Jonis Assmann still leads, with second generation (Bruno Franciosi) in management.\nActivates in 101:42:34",
     "iocs": [
       {
@@ -76,7 +77,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Janet, Janet & Suggs",
+    "victimName": "JJS Justice",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -88,7 +89,7 @@ const QUEUE = [
       "legal_consulting"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Janet, Janet & Suggs (JJS Justice), a U.S.-based plaintiff-side personal injury and medical malpractice law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting JJS Justice (Janet, Janet & Suggs), a United States-based plaintiff-side personal injury and medical malpractice law firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "JJS Justice\njjsjustice.com JJS Justice (Janet, Janet & Suggs, LLC) is a national plaintiff-side firm based in Baltimore/Pikesville, MD, founded 1996 (practice since 1978) — specializing in birth injuries/CP, medical malpractice, sexual abuse (clergy, USC/Johns Hopkins), mass torts, and whistleblower cases. Record: $3B+ in verdicts and settlements over 40 years, including the largest US sexual-abuse settlement ($852M vs. USC/Dr. Tyndall, 2021), $190M vs. Johns Hopkins, $225M NJ v. ExxonMobil, and multiple record birth-injury verdicts. Led since Sept 2025 by Andrew S. Janet after founder Howard A. Janet died at 70; core team includes Kenneth M. Suggs (ex-ATLA president) and Dr. Giles Manley (OBGYN turned lawyer). Chambers USA Band 2 (MD plaintiffs), Best Lawyers \"Lawyer of the Year\" 2025, Super Lawyers, Lawdragon 500, AV Preeminent, ABOTA. Contingency model (no fee unless they win), 10+ states + DC, ~17 lawyers, ~60 staff.\nActivates in 102:01:08",
     "iocs": [
       {
@@ -98,7 +99,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Entry Systems",
+    "victimName": "Entry Systems Garage Doors Gates",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -110,7 +111,7 @@ const QUEUE = [
       "construction"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Entry Systems, a U.S.-based garage door and automated gate services company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Entry Systems Garage Doors Gates, a United States-based garage door and automated gate services company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Entry Systems Garage Doors Gates\nentrysystems.com Entry Systems Garage Doors & Gates 3rd-generation family business in Laguna Hills, CA (with a second design center in Tustin, opened 2024) — servicing garage doors and automated gates across South Orange County since 1972. Legal entity: Laguna Niguel Garage Door Service, Inc.; CA contractor license #916334 (class D28, active through 2028, clear record), bonded and insured. Services: garage door repair/installation (CHI, Amarr, Clopay), openers (Genie, Liftmaster, smart home), swing/slide gates (DoorKing, Elite, Eagle, solar), telephone entry systems, welding, and maintenance — same-day emergency service typical.\nActivates in 102:14:25",
     "iocs": [
       {
@@ -142,7 +143,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Petroleum Telcom",
+    "victimName": "Petroleum Telcom Communications",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -154,7 +155,7 @@ const QUEUE = [
       "communications"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Petroleum Telcom (doing business as Telcom Communications), a U.S.-based two-way radio and communications systems integrator. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Petroleum Telcom Communications, a United States-based two-way radio and communications systems integrator. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Petroleum Telcom Communications\nptelcom.com Petroleum Telcom, Inc. (dba Telcom, Inc. / Telcom Communications) Southern California communications integrator founded in 1978 in Oxnard, CA — specializing in two-way radio for police/fire, microwave links, fiber optics, cell towers, and FCC licensing. Owned and led by Frank R. Hines (president since 1986), now a lean ~6-person shop (peak 35 in 1999), dealer for Motorola, Kenwood, and Bendix-King, with ~200 owned repeaters across CA/NV/AZ/UT. CA contractor license #620689 (B + C7) active since 1991, zero complaints, bonded and insured. Government track record is real and documented: Ventura County since 1982, Stanislaus County $1.2M, Port of LA police radio system $1.19M (2017–19), City of Oxnard up to $900K (2023–27), USGS, and 5 DoD contracts. Revenue not disclosed (est. $1–5M).\nActivates in 99:35:33",
     "iocs": [
       {
@@ -164,7 +165,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Song Woo Industrial",
+    "victimName": "SONGWOOI",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -176,7 +177,7 @@ const QUEUE = [
       "manufacturing"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Song Woo Industrial, a South Korea-based manufacturer of automotive and industrial rubber hoses. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting SONGWOOI, a South Korea-based manufacturer of automotive and industrial rubber hoses. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.",
     "leakText": "SONGWOOI\nsongwooi.co.kr SONGWOOI (Song Woo Industrial Co., Ltd.,) South Korean manufacturer of automotive and industrial rubber hoses — intercooler/TCI, heater, fuel, CPF/DPF, and power steering lines — founded 1998 in Busan, HQ and plant in Yangsan since 2002. Founder-Chairman Park Su-kon localized TCI hoses that were 100% imported from Japan, claiming 90% Korean market share; customers include Hyundai, Kia, Renault Samsung, Hyundai Heavy Industries, and Volvo CE. Certifications: IATF 16949, ISO 14001, ISO 9001; Plus Inno-Biz/Main-Biz status and national awards (Bronze Tower Medal 2015 to Park). Revenue ₩69.9B ($50M) in 2025, down from ₩104.8B peak (2013) — declining four years straight as the industry shifts to EVs — but profitability improved (5.2% operating margin, ROE 23%). Financials are unusually strong: zero debt, 80% equity ratio, ₩52.9B total assets; ~163–197 employees. Watch-outs: some databases list a different CEO (Park Eun-chul)\nActivates in 99:17:23",
     "iocs": [
       {
@@ -186,7 +187,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "St. Peter's Anglican Grammar",
+    "victimName": "St Peters Anglican Primary School",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -198,7 +199,7 @@ const QUEUE = [
       "education"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting St. Peter's Anglican Grammar (formerly St Peter's Anglican Primary School), Australia. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 2 percent are based in the ANZAC region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting St Peters Anglican Primary School, Australia. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 2 percent are based in the ANZAC region.",
     "leakText": "St Peters Anglican Primary School\nstpeters.sa.edu.au St Peter's Anglican Grammar independent Anglican co-ed school in Campbelltown, NSW (est. 1983, revived parish school), teaching Pre-K to Year 6 (~428 students, ICSEA 1118 — 89th percentile nationally). It's part of the Campbelltown Anglican Schools Council (CASC) alongside Broughton Anglican College (P–12) and St Peter's Heart (special needs). Academics are solid: NAPLAN scores run ~33 points above the national average, SchoolRank rates it 69.3/100 (\"Good\", 129th in NSW), and it's one of only two IB PYP World Schools in the Macarthur region. Fees are modest — $9,400/yr (K–2) and $9,920/yr (Y3–6) — with generous sibling discounts up to 100%. Led by Principal Michelle McDonnell (2023–) under CEO Andrew Middleton; 39 teachers, 14.9:1 ratio, strong specialist programs (German, French, STEAM from K). The one major controversy: in July 2022 the council abruptly closed a just-launched high school (Years 7–12)\nActivates in 101:32:22",
     "iocs": [
       {
@@ -208,7 +209,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "C.A.S. Paper Mill",
+    "victimName": "CAS Paper Mill",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -220,7 +221,7 @@ const QUEUE = [
       "manufacturing"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting C.A.S. Paper Mill, a Thailand-based paper manufacturer. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting CAS Paper Mill, a Thailand-based paper manufacturer. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.",
     "leakText": "CAS Paper Mill\ncaspapermill.com C.A.S. Paper Mill Co., Ltd. is a Thai paper manufacturer in Singburi (est. 1990, operating since 1994), part of the Charoen Aksorn Group — Thailand's largest paper distributor, backed by Bangkok Bank and Vacharaphol. It produces 130,000 MT/yr of newsprint, printing and kraft paper plus 30,000 MT/yr of tissue (Toscotec line, 2022), from 100% recycled US/Canadian waste paper. Zero-liquid-discharge since 1994, 10 MWp floating solar; ISO 9001/14001/45001, TIS 758, FSC C125297. Exports: Vietnam, Philippines, Pakistan. Revenue est. $80–150M (~300 staff), but fell ~10% in 2025 as newsprint demand declines. Main red flag: 2018 villagers' protest over alleged coal pollution affecting 10,000+ residents, and denial of a license for the coal expansion.\nActivates in 101:30:22",
     "iocs": [
       {
@@ -242,7 +243,7 @@ const QUEUE = [
       "logistics"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Axle Logistics, a U.S.-based freight brokerage. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Axle Logistics, a United States-based freight brokerage. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Axle Logistics\naxlelogistics.com Axle Logistics non-asset freight brokerage founded in 2012 in Knoxville, Tennessee, by Drew Johnson and Jon Clay — two University of Tennessee grads who started with two people and one trucking software license. It organizes truckload, LTL, intermodal, and port drayage shipments across the US, Canada, and Mexico by matching loads with third-party carriers, focusing on Fortune 500 shippers and mid-market brands. Revenue exploded from $80M (2018) to over $1.2B gross / $159M net (2025), and headcount grew from 2 to roughly 700 — making it one of the fastest-scaling brokers in the country. It's landed on the Inc. 5000 list over a decade straight, ranked #52 among Transport Topics' top 50 logistics companies, and won Knoxville Top Workplaces seven years running. The company invested $38M in a gleaming new 84,000 sq ft HQ with state support and pays employees an average of ~$117K/year. It's a brokerage, not a carrier — so shipment quality depends on the carriers.\nActivates in 100:21:26",
     "iocs": [
       {
@@ -264,7 +265,7 @@ const QUEUE = [
       "financial_services"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting North Bridge Venture Partners, a U.S.-based venture capital firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting North Bridge Venture Partners, a United States-based venture capital firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "North Bridge Venture Partners\nnorthbridge.com North Bridge Venture Partners one of Boston's most storied venture capital firms, founded in 1994 by Bill Geary, Doug Kingsley, Ed Anderson, Mike Pehl, and Richard D'Amore — ~$3.5B under management across 8 funds, ~200+ investments, 100+ exits, and 14 unicorns. Legendary portfolio: Demandware (sold to Salesforce for $2.8B), Starent Networks ($2.9B to Cisco), Proto Labs (IPO), Couchbase ($1.5B to Haveli, 2025), Quora, Salsify, Acquia ($1B to Vista), Actifio (to Google), Paydiant (to PayPal). Its growth-equity arm split off in 2018 as Guidepost Growth Equity ($1.1B+ AUM). Today the fund is in harvest mode — no new deals since 2021–2022, small remaining team, minimal website. May 2026: ransomware group DragonForce claimed to have stolen 22.9GB of internal files (unconfirmed by the firm). For startups seeking capital it's not an active option; for portfolio/LP diligence or the breach, it remains relevant.\nActivates in 99:10:07",
     "iocs": [
       {
@@ -296,29 +297,7 @@ const QUEUE = [
     ]
   },
   {
-    "victimName": "Inovar Packaging Group",
-    "groupName": "The Gentlemen",
-    "sourceActorName": "The Gentlemen",
-    "titleSeparator": " Ransomware: ",
-    "threatType": "ransomware",
-    "ddwTag": "DDW Ransomware",
-    "countryTag": "United States",
-    "regionValue": "us_canada",
-    "industryValues": [
-      "manufacturing"
-    ],
-    "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Inovar Packaging Group, a U.S.-based labels and flexible packaging manufacturer. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
-    "leakText": "Inovar Packaging Group\ninovarpackaging.com Inovar Packaging Group (Irving, TX) is a PE-backed buy-and-build platform producing pressure-sensitive labels, shrink sleeves, flexible packaging, and RFID — 14 US plants, 12+ acquisitions since 2016 (latest: Kiliper Corp, Feb 2026). Owned by Kelso & Company since May 2022 (previously AEA Investors); CEO/Chairman Jeff Brezek leads, with deal advisors Milbank and Mesirow confirming real M&A scale. Revenue is private and undisclosed — realistic estimates put it at $100–250M, with ~500–750 employees (Form 5500 filings show plan participants growing 121→743 in 2020–2024). Certifications are strong: ISO 9001/14001, first US printer with GMI Platinum (both digital + flexo; serves CVS, Target, Walgreens, Home Depot), FDA 21 CFR 11 / EU Annex 11, EcoVadis Gold; won the 2024 TLMI Eugene Singer Award. Clients: food & beverage, healthcare, ag-chem, supplements, personal care — with built-in redundancy across plants for continuity.\nActivates in 98:56:24",
-    "iocs": [
-      {
-        "type": "domain",
-        "value": "inovarpackaging.com"
-      }
-    ]
-  },
-  {
-    "victimName": "Thai HA",
+    "victimName": "Thai Ha PCL KASET",
     "groupName": "The Gentlemen",
     "sourceActorName": "The Gentlemen",
     "titleSeparator": " Ransomware: ",
@@ -330,7 +309,7 @@ const QUEUE = [
       "manufacturing"
     ],
     "onionUrl": "http://tezwsse5czllksjb7cwp65rvnk4oobmzti2znn42i43bjdfd2prqqkad.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Thai HA, a Thailand-based rice and noodle producer and exporter. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Thai Ha PCL KASET, a Thailand-based rice and noodle producer and exporter. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.",
     "leakText": "Thai Ha PCL KASET\nkasetbrand.co.th Thai Ha PCL (SET: KASET) is a Thai public company founded 1993, listed since 2005, exporting jasmine rice, mung bean noodles, and snacks (brands KASET, SMART CHEF, IMPERIAL TASTE) to 80+ countries — the US is its largest market (902+ shipments, active as of Oct 2026). Core assets: a rice mill in Nakhon Pathom (100K tons/yr capacity) and a noodle factory in Nakhon Sawan; certified BRC Grade A+, US FDA, Halal, KOSHER, SMETA. The family Tangpiroonthum controls ~42% via Cheer Group Holdings, CEO Somroek Tangpiroonthum in place since 2004. But financially it's been bleeding: revenue fell from ฿611M (2020) to ฿302M (2025), six consecutive years of losses totaling ~฿330M, negative operating cash flow, debt/equity ~143%. A turnaround plan launched in 2024 — including halving par value (฿1.00→฿0.50) to wipe ~฿139M accumulated deficit — is narrowing losses (Q2 2026 –66% YoY) but the company is still unprofitable.\nActivates in 98:47:47",
     "iocs": [
       {
@@ -522,7 +501,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');
@@ -559,6 +538,8 @@ async function fillNeedle(cfg, win = window) {
       #zf-batch-panel .zf-date { color:#555; font-weight:normal; }
       #zf-batch-panel .zf-date.zf-bad { color:#c00; font-weight:bold; }
       #zf-batch-panel .zf-note { font-weight:normal; color:#a00; white-space:pre-wrap; }
+      #zf-batch-panel .zf-url { display:flex; gap:4px; align-items:center; margin-top:2px; font-size:11px; color:#555; flex-wrap:wrap; }
+      #zf-batch-panel .zf-url input { flex:1; min-width:180px; font-size:11px; padding:2px; }
     `;
     document.head.appendChild(style);
 
@@ -571,7 +552,7 @@ async function fillNeedle(cfg, win = window) {
       <div style="display:flex;justify-content:space-between;align-items:center">
         <b>Needles batch (${QUEUE.length} victims)</b><button data-x title="Close panel">✕</button>
       </div>
-      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), and add a Relation if the victim already has a Needle.</div>
+      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), use the listing's own onion link as Source URL (per-row field below), and add a Relation if the victim already has a Needle.</div>
       <label style="display:block;margin:8px 0 4px">Add Needle page URL</label>
       <input data-url style="width:100%;box-sizing:border-box;padding:4px" placeholder="https://intel-api.zerofox.com/wagtail/admin/pages/add/.../">
       <div style="margin:8px 0;display:flex;gap:6px;flex-wrap:wrap">
@@ -609,7 +590,10 @@ async function fillNeedle(cfg, win = window) {
             const ctrls = `<button data-sel="${i}" title="Fill this one next">▶</button><button data-up="${i}" title="Move up">▲</button><button data-down="${i}" title="Move down">▼</button>`;
             const date = `<span class="zf-date${bad ? ' zf-bad' : ''}">(content date ${esc(d)}${bad ? ' ≠ today' : ''})</span>`;
             const note = r.note ? `<div class="zf-note">${esc(r.note)}</div>` : '';
-            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${note}</li>`;
+            const isRoot = /^https?:\/\/[^/]+\/?(blog\/?)?$/i.test(c.onionUrl);
+            const urlRow = `<div class="zf-url"><span>Source URL</span><input data-url-i="${i}" value="${esc(c.onionUrl)}" title="Paste the listing's own onion link here before filling">`
+                + (isRoot ? `<span class="zf-date zf-bad">site root — paste the listing's own link</span>` : '') + `</div>`;
+            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${urlRow}${note}</li>`;
         }).join('');
         q('[data-next]').disabled = q('[data-here]').disabled = q('[data-skip]').disabled = busy() || finished();
         q('[data-dates]').disabled = busy();
@@ -671,6 +655,12 @@ async function fillNeedle(cfg, win = window) {
             + `add a Relation if needed, check VERIFY in its console, Save draft. Then click "Open & fill next".`);
     }
 
+    q('[data-list]').addEventListener('change', e => {
+        const inp = e.target.closest('input[data-url-i]');
+        if (!inp) return;
+        QUEUE[+inp.dataset.urlI].onionUrl = inp.value.trim();
+        render();
+    });
     q('[data-list]').addEventListener('click', e => {
         const b = e.target.closest('button');
         if (!b || busy()) return;

@@ -1,6 +1,6 @@
-// Entry Systems — The Gentlemen Ransomware (October 20, 2026)
+// Entry Systems Garage Doors Gates — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
-const victimName = "Entry Systems";
+const victimName = "Entry Systems Garage Doors Gates";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
@@ -11,7 +11,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Entry Systems, a U.S.-based garage door and automated gate services company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Entry Systems Garage Doors Gates, a United States-based garage door and automated gate services company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`Entry Systems Garage Doors Gates
 entrysystems.com Entry Systems Garage Doors & Gates 3rd-generation family business in Laguna Hills, CA (with a second design center in Tustin, opened 2024) — servicing garage doors and automated gates across South Orange County since 1972. Legal entity: Laguna Niguel Garage Door Service, Inc.; CA contractor license #916334 (class D28, active through 2028, clear record), bonded and insured. Services: garage door repair/installation (CHI, Amarr, Clopay), openers (Genie, Liftmaster, smart home), swing/slide gates (DoorKing, Elite, Eagle, solar), telephone entry systems, welding, and maintenance — same-day emergency service typical.
@@ -206,7 +206,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

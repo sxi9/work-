@@ -1,8 +1,8 @@
-// Petroleum Telcom — The Gentlemen Ransomware (October 20, 2026)
+// Petroleum Telcom Communications — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: site unreachable (503); legal name "Petroleum Telcom, Inc." (Inc stripped), logo "Telcom Inc"
 
-const victimName = "Petroleum Telcom";
+const victimName = "Petroleum Telcom Communications";
 const groupName = "The Gentlemen";
 const countryTag = "United States";
 const regionValue = "us_canada";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Petroleum Telcom (doing business as Telcom Communications), a U.S.-based two-way radio and communications systems integrator. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Petroleum Telcom Communications, a United States-based two-way radio and communications systems integrator. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`Petroleum Telcom Communications
 ptelcom.com Petroleum Telcom, Inc. (dba Telcom, Inc. / Telcom Communications) Southern California communications integrator founded in 1978 in Oxnard, CA — specializing in two-way radio for police/fire, microwave links, fiber optics, cell towers, and FCC licensing. Owned and led by Frank R. Hines (president since 1986), now a lean ~6-person shop (peak 35 in 1999), dealer for Motorola, Kenwood, and Bendix-King, with ~200 owned repeaters across CA/NV/AZ/UT. CA contractor license #620689 (B + C7) active since 1991, zero complaints, bonded and insured. Government track record is real and documented: Ventura County since 1982, Stanislaus County $1.2M, Port of LA police radio system $1.19M (2017–19), City of Oxnard up to $900K (2023–27), USGS, and 5 DoD contracts. Revenue not disclosed (est. $1–5M).
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

@@ -1,8 +1,8 @@
-// REGiO-Nord — The Gentlemen Ransomware (October 22, 2026)
+// REGiO Nord — The Gentlemen Ransomware (October 22, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: site title "REGiO-Nord mbH" (mbH stripped); copyright line "Regionale Entwicklungsgesellschaft Oberhavel-Nord"; arztidylle.de is a project site named in the leak text — drop that IOC if unwanted
 
-const victimName = "REGiO-Nord";
+const victimName = "REGiO Nord";
 const groupName = "The Gentlemen";
 const countryTag = "Germany";
 const regionValue = "eu_russia";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting REGiO-Nord, a Germany-based municipal regional development company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.";
+const contentText = "On October 22, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting REGiO Nord, a Germany-based municipal regional development company. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which nearly 25 percent are based in the Europe-Russia region.";
 
 const leakText = String.raw`REGiO Nord
 regio-nord.com REGiO-Nord mbH (HRB 1203, Amtsgericht Neuruppin) is a municipal regional-development company in Gransee, Brandenburg, founded 2008–2009 to run the shared "Mittelzentrum" of Gransee–Zehdenick–Fürstenberg/Havel. It is 100% publicly owned (Zehdenick 1/3, Fürstenberg 1/3, Gransee 1/6, Amt Gransee 1/6), led by sole managing director Olaf Bechert with a staff of ~5 plus two tourist info offices. Its real money flows through the Kooperationsfonds — ~€8.9M in projects since 2008, with €538K spent in 2025 and €563K budgeted for 2026, of which €312K funds the company's own coordination work. Four workstreams: education (teacher recruitment, apprenticeship exchange), economy (business services, doctor recruitment, arztidylle.de), tourism (two info stations, region portals, RegioApp), and regional marketing (REGiO-Card, library network). Finances are project-transparent (open budget reports) but the GmbH's own annual accounts are only public through 2022 — request 2023–2025.
@@ -209,7 +209,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

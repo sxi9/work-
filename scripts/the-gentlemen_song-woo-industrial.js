@@ -1,8 +1,8 @@
-// Song Woo Industrial — The Gentlemen Ransomware (October 20, 2026)
+// SONGWOOI — The Gentlemen Ransomware (October 20, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: site unreachable (503); logo reads "SONG WOO IND. CO. LTD" / 송우산업(주); listing handle "SONGWOOI"
 
-const victimName = "Song Woo Industrial";
+const victimName = "SONGWOOI";
 const groupName = "The Gentlemen";
 const countryTag = "South Korea";
 const regionValue = "apac";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Song Woo Industrial, a South Korea-based manufacturer of automotive and industrial rubber hoses. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
+const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting SONGWOOI, a South Korea-based manufacturer of automotive and industrial rubber hoses. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 10 percent are based in the Asia-Pacific region.";
 
 const leakText = String.raw`SONGWOOI
 songwooi.co.kr SONGWOOI (Song Woo Industrial Co., Ltd.,) South Korean manufacturer of automotive and industrial rubber hoses — intercooler/TCI, heater, fuel, CPF/DPF, and power steering lines — founded 1998 in Busan, HQ and plant in Yangsan since 2002. Founder-Chairman Park Su-kon localized TCI hoses that were 100% imported from Japan, claiming 90% Korean market share; customers include Hyundai, Kia, Renault Samsung, Hyundai Heavy Industries, and Volvo CE. Certifications: IATF 16949, ISO 14001, ISO 9001; Plus Inno-Biz/Main-Biz status and national awards (Bronze Tower Medal 2015 to Park). Revenue ₩69.9B ($50M) in 2025, down from ₩104.8B peak (2013) — declining four years straight as the industry shifts to EVs — but profitability improved (5.2% operating margin, ROE 23%). Financials are unusually strong: zero debt, 80% equity ratio, ₩52.9B total assets; ~163–197 employees. Watch-outs: some databases list a different CEO (Park Eun-chul)
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

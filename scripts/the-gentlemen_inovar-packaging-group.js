@@ -1,4 +1,4 @@
-// Inovar Packaging Group — The Gentlemen Ransomware (October 20, 2026)
+// Inovar Packaging Group — The Gentlemen Ransomware (October 23, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: copyright line reads only "Inovar"; logo, LinkedIn and listing use "Inovar Packaging Group"
 
@@ -13,11 +13,11 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 20, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Inovar Packaging Group, a U.S.-based labels and flexible packaging manufacturer. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 23, 2026, ZeroFox observed an update on The Gentlemen ransomware leak site targeting Inovar Packaging Group, a United States-based labels and flexible packaging manufacturer. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`Inovar Packaging Group
 inovarpackaging.com Inovar Packaging Group (Irving, TX) is a PE-backed buy-and-build platform producing pressure-sensitive labels, shrink sleeves, flexible packaging, and RFID — 14 US plants, 12+ acquisitions since 2016 (latest: Kiliper Corp, Feb 2026). Owned by Kelso & Company since May 2022 (previously AEA Investors); CEO/Chairman Jeff Brezek leads, with deal advisors Milbank and Mesirow confirming real M&A scale. Revenue is private and undisclosed — realistic estimates put it at $100–250M, with ~500–750 employees (Form 5500 filings show plan participants growing 121→743 in 2020–2024). Certifications are strong: ISO 9001/14001, first US printer with GMI Platinum (both digital + flexo; serves CVS, Target, Walgreens, Home Depot), FDA 21 CFR 11 / EU Annex 11, EcoVadis Gold; won the 2024 TLMI Eugene Singer Award. Clients: food & beverage, healthcare, ag-chem, supplements, personal care — with built-in redundancy across plants for continuity.
-Activates in 98:56:24`;
+Activates in 84:01:40`;
 
 const iocs = [
     { type: "domain", value: "inovarpackaging.com" },
@@ -208,7 +208,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');

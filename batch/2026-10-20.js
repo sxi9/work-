@@ -1,4 +1,4 @@
-// Needles batch — built 2026-10-22 from 8 script(s):
+// Needles batch — built 2026-10-23 from 8 script(s):
 //   scripts/storm_patriot-maritime.js
 //   scripts/storm_baltimore-tank-lines.js
 //   scripts/storm_merit-financial-group.js
@@ -19,6 +19,8 @@
 //  4. Click "Open & fill next": a new tab opens on the add page and is filled from this tab.
 //     Same-origin tabs allow that — nothing is injected into Wagtail, no extension is needed.
 //     The browser may ask once to allow pop-ups for the admin host.
+//     Each row has a Source URL field: paste the listing's own onion link there (rows that still
+//     carry only the site root are marked in red) before clicking fill.
 //  5. In the new tab: add the Image block, add a Relation if the victim already has a Needle,
 //     read VERIFY in that tab's console, Save draft. Come back here and click again.
 //  "Fill this tab" fills the next victim into the current tab instead (when you already sit
@@ -39,7 +41,7 @@ const QUEUE = [
       "defense_aerospace"
     ],
     "onionUrl": "http://yqhecvqtdvq6p7duqcgw2qca77spbgakxcoibtx6zpvfshltsbbbhfqd.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Patriot Maritime, a U.S.-based maritime contractor that manages and operates vessels for U.S. government and commercial clients. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Patriot Maritime, a United States-based maritime contractor that manages and operates vessels for the United States government and commercial clients. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Aerospace & Defense\n5d 20h 48m 01s\nPatriot Maritime\nConcord · California · United States\nPosted 1 day ago\nOct 19, 2026\n5d 20h 48m 01s\nOct 26, 2026\nPatriot Maritime is a leading maritime contractor in the United States, specializing in the management and operation of vessels for both government and commercial clients. The company supports U.S. military readiness and commercial trade by managing a variety of vessel classes, including Ready Reserve Force ships and RO-RO cargo vessels. With a commitment to safety, compliance, and operational excellence, Patriot Maritime serves federal agencies, educational institutions, and private maritime organizations. As a privately held company, it aims to advance the future of maritime services in support of U.S. national security. The company headquarters is located in 1320 Willow Pass Road, Suite 485, Concord, CA 94520, United States. 11-50 Employees\nSTATUS\nPending\n5d 20h 48m 01s\nVIEWS\n307\nAcross detail + file-list\nLIMIT DAY\nOct 26, 2026\n6 days left\nPOSTED\nOct 19, 2026\n1 day ago\nFiles on record\nNo filelist uploaded for this company yet.\nThe admin hasn't uploaded a filelist for this company yet.",
     "iocs": []
   },
@@ -56,7 +58,7 @@ const QUEUE = [
       "logistics"
     ],
     "onionUrl": "http://yqhecvqtdvq6p7duqcgw2qca77spbgakxcoibtx6zpvfshltsbbbhfqd.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Baltimore Tank Lines, a U.S.-based liquid bulk trucking carrier. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Baltimore Tank Lines, a United States-based liquid bulk trucking carrier. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "← Back\nEnergy\n13 days\nBaltimore Tank Lines\nGlen Burnie · Maryland · United States\nPosted 1 day ago\nOct 19, 2026\n13 days\nNov 3, 2026\nBaltimore Tank Lines is a leading transporter of liquid bulk commodities, including fuel, DEF, motor oils, fertilizer, and food-grade products. With over 75 years of experience, the company serves a diverse clientele across local, regional, and national accounts. They are committed to expanding their operations and client base by adding new service locations and growing their manpower and equipment. Baltimore Tank Lines also offers flexible job opportunities and a comprehensive benefits package for transport drivers. The company headquarters is located in 180 8th Avenue NW, Glen Burnie, MD 21061, United States. 11-50 Employees\nSTATUS\nPending\n13 days\nVIEWS\n300\nAcross detail + file-list\nLIMIT DAY\nNov 3, 2026\n14 days left\nPOSTED\nOct 19, 2026\n1 day ago",
     "iocs": []
   },
@@ -73,7 +75,7 @@ const QUEUE = [
       "financial_services"
     ],
     "onionUrl": "http://yqhecvqtdvq6p7duqcgw2qca77spbgakxcoibtx6zpvfshltsbbbhfqd.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Merit Financial Group (doing business as Merit Financial Advisors), a U.S.-based wealth management firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Storm ransomware leak site targeting Merit Financial Group (doing business as Merit Financial Advisors), a United States-based wealth management firm. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "FinTech\n8 days\nMerit Financial Group\nAlpharetta · Georgia · United States\nPosted 1 day ago\nOct 19, 2026\n8 days\nOct 29, 2026\nMerit Financial Group, LLC, doing business as Merit Financial Advisors (\"Merit\"), is a national wealth management firm that supports both the independent broker-dealer and RIA models. Based in Atlanta, Georgia, Merit has 24 additional offices throughout the U.S. and managed $5.59 billion in assets as of June 30, 2021 ($3.53 billion in advisory, $1.95 billion in brokerage assets and with $112 million in assets under advisement). Merit's mission is to establish and exceed the financial goals of its clients, while also providing its advisors and offices with practice management resources, an industry leading technology platform and the investment expertise needed to drive growth and deliver a superior client experience. The company headquarters is located in 2400 Lakeview Parkway, Suite 550, Alpharetta, GA 30009, United States. 201-500 Employees\nSTATUS\nPending\n8 days\nVIEWS\n322\nAcross detail + file-list\nLIMIT DAY\nOct 29, 2026\n9 days left\nPOSTED\nOct 19, 2026\n1 day ago\nFiles on record\nNo filelist uploaded for this company yet.\nThe admin hasn't uploaded a filelist for this company yet.",
     "iocs": []
   },
@@ -90,7 +92,7 @@ const QUEUE = [
       "professional_services"
     ],
     "onionUrl": "http://pearsmob5sn44ismokiusuld34pnfwi6ctgin3qbvonpoob4lh3rmtqd.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Caretaker Landscape and Tree Management, a U.S.-based commercial landscape maintenance and tree management company serving Arizona and Colorado. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Caretaker Landscape and Tree Management, a United States-based commercial landscape maintenance and tree management company serving Arizona and Colorado. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Caretaker Landscape and Tree Management ANNOUNCED\nFull-service commercial landscape and development services such as pruning, fertilization, mowing, renovation, and aeration\nData Volume: 544 Gb\nShow more\nDate Company Notified: 10/14/2026\nSite: caretakerlandscape.com\nIndustry: Consumer Services\nLocation: USA\nRevenue: $56.6M\nDetails",
     "iocs": [
       {
@@ -113,7 +115,7 @@ const QUEUE = [
       "communications"
     ],
     "onionUrl": "http://pearsmob5sn44ismokiusuld34pnfwi6ctgin3qbvonpoob4lh3rmtqd.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Solar Communications International, a U.S.-based designer and manufacturer of concealment systems for wireless telecommunications infrastructure. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Solar Communications International, a United States-based designer and manufacturer of concealment systems for wireless telecommunications infrastructure. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Solar Communications International ANNOUNCED\nProminent supplier and developer of RFTransparent products that seamlessly integrate wireless infrastructure into various community settings\nData Volume: 1.4 Tb\nShow more\nDate Company Notified: 10/14/2026\nSite: rftransparent.com\nIndustry: Manufacturing\nLocation: USA\nRevenue: $6M\nDetails",
     "iocs": [
       {
@@ -135,7 +137,7 @@ const QUEUE = [
       "financial_services"
     ],
     "onionUrl": "http://pearsmob5sn44ismokiusuld34pnfwi6ctgin3qbvonpoob4lh3rmtqd.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Macfarlan Capital Partners, a U.S.-based private equity real estate investment sponsor. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Macfarlan Capital Partners, a United States-based private equity real estate investment sponsor. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Macfarlan Capital Partners ANNOUNCED\nEquity real estate investment sponsor that serves institutional investors, family offices, wealth management advisors, and high net worth individuals\nData Volume: 350 Gb\nShow more\nDate Company Notified: 10/14/2026\nSite: macfarlan.com\nIndustry: Finance, Real Estate\nLocation: USA\nRevenue: <$5M\nDetails",
     "iocs": [
       {
@@ -158,7 +160,7 @@ const QUEUE = [
       "professional_services"
     ],
     "onionUrl": "http://xjhmtitnrdrgzw4vmsghirdoo2fk35a3tzj4enlmah4pvehdspydsiyd.onion/blog",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the DragonForce ransomware leak site targeting Oak Grove Technologies, a U.S.-based defense training and intelligence services contractor serving U.S. Department of Defense clients. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the DragonForce ransomware leak site targeting Oak Grove Technologies, a United States-based defense training and intelligence services contractor serving United States Department of Defense clients. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Publication (www.oakgrovetech.com)\nOAKGROVETECH\nPublicated files: click here to go\nwww.oakgrovetech.com\noakgrovetech.com\n261.46 GB\nDescription\nThe company specializes in multi-domain training, unmanned systems & robotics, cyber/space operations, learning/courseware development, staff augmentation, intelligence analysis, and operates a Test & Training Center near Fort Bragg/Hoffman, NC. It primarily serves DoD clients including USASOC and 1st Special Forces Command.\n\nCorporate email archive of CEO and executive management (12 PST files, 35.14 GB) — forwarded credentials, NDAs, negotiations with the DoD/FBI and other companies.\nDeltek GCS payroll module: banking details of all vendors and contractors.\nAccounting system backup.\nCompany QuickBooks files — OGT financial database: bank accounts, employee SSNs, administrator password.\nContracts, personal data (PII), SSNs and much more.\n2 October 2026",
     "iocs": [
       {
@@ -180,7 +182,7 @@ const QUEUE = [
       "education"
     ],
     "onionUrl": "http://4dwiv37h7hhuhjpvtn72hme4ylcv3qoe65arfc6mbweal7als6ma7pyd.onion/",
-    "contentText": "On October 20, 2026, ZeroFox observed an update on the Wallstreet ransomware leak site targeting Girl Scouts of Eastern Massachusetts, a U.S.-based nonprofit Girl Scouts council serving eastern Massachusetts. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
+    "contentText": "On October 20, 2026, ZeroFox observed an update on the Wallstreet ransomware leak site targeting Girl Scouts of Eastern Massachusetts, a United States-based nonprofit Girl Scouts council serving eastern Massachusetts. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.",
     "leakText": "Girl Scouts of Eastern Massachusetts\nENDS IN 00h 00m 00s\nDOCUMENTS EMAILS CREDENTIALS PERSONAL DATA MEDIA\nCONFIDENTIAL\n/f/26f867268d737afeef80cf68\nGirl Scouts of Eastern Massachusetts, Inc. (GSEMA) is a 501(c)(3) nonprofit serving girls and young people across eastern Massachusetts. Its mission is to help girls build courage, confidence, and character so they can make the world a better place",
     "iocs": []
   }
@@ -367,7 +369,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');
@@ -404,6 +406,8 @@ async function fillNeedle(cfg, win = window) {
       #zf-batch-panel .zf-date { color:#555; font-weight:normal; }
       #zf-batch-panel .zf-date.zf-bad { color:#c00; font-weight:bold; }
       #zf-batch-panel .zf-note { font-weight:normal; color:#a00; white-space:pre-wrap; }
+      #zf-batch-panel .zf-url { display:flex; gap:4px; align-items:center; margin-top:2px; font-size:11px; color:#555; flex-wrap:wrap; }
+      #zf-batch-panel .zf-url input { flex:1; min-width:180px; font-size:11px; padding:2px; }
     `;
     document.head.appendChild(style);
 
@@ -416,7 +420,7 @@ async function fillNeedle(cfg, win = window) {
       <div style="display:flex;justify-content:space-between;align-items:center">
         <b>Needles batch (${QUEUE.length} victims)</b><button data-x title="Close panel">✕</button>
       </div>
-      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), and add a Relation if the victim already has a Needle.</div>
+      <div class="zf-warn">⚠ BEFORE SAVING EACH ENTRY: check every detail and the DATE in the content paragraph, ADD THE LEAK SCREENSHOT (Image block), use the listing's own onion link as Source URL (per-row field below), and add a Relation if the victim already has a Needle.</div>
       <label style="display:block;margin:8px 0 4px">Add Needle page URL</label>
       <input data-url style="width:100%;box-sizing:border-box;padding:4px" placeholder="https://intel-api.zerofox.com/wagtail/admin/pages/add/.../">
       <div style="margin:8px 0;display:flex;gap:6px;flex-wrap:wrap">
@@ -454,7 +458,10 @@ async function fillNeedle(cfg, win = window) {
             const ctrls = `<button data-sel="${i}" title="Fill this one next">▶</button><button data-up="${i}" title="Move up">▲</button><button data-down="${i}" title="Move down">▼</button>`;
             const date = `<span class="zf-date${bad ? ' zf-bad' : ''}">(content date ${esc(d)}${bad ? ' ≠ today' : ''})</span>`;
             const note = r.note ? `<div class="zf-note">${esc(r.note)}</div>` : '';
-            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${note}</li>`;
+            const isRoot = /^https?:\/\/[^/]+\/?(blog\/?)?$/i.test(c.onionUrl);
+            const urlRow = `<div class="zf-url"><span>Source URL</span><input data-url-i="${i}" value="${esc(c.onionUrl)}" title="Paste the listing's own onion link here before filling">`
+                + (isRoot ? `<span class="zf-date zf-bad">site root — paste the listing's own link</span>` : '') + `</div>`;
+            return `<li class="${i === state.next ? 'zf-next' : ''}">${ctrls} ${mark} <b>${esc(c.groupName)}: ${esc(c.victimName)}</b> ${date}${urlRow}${note}</li>`;
         }).join('');
         q('[data-next]').disabled = q('[data-here]').disabled = q('[data-skip]').disabled = busy() || finished();
         q('[data-dates]').disabled = busy();
@@ -516,6 +523,12 @@ async function fillNeedle(cfg, win = window) {
             + `add a Relation if needed, check VERIFY in its console, Save draft. Then click "Open & fill next".`);
     }
 
+    q('[data-list]').addEventListener('change', e => {
+        const inp = e.target.closest('input[data-url-i]');
+        if (!inp) return;
+        QUEUE[+inp.dataset.urlI].onionUrl = inp.value.trim();
+        render();
+    });
     q('[data-list]').addEventListener('click', e => {
         const b = e.target.closest('button');
         if (!b || busy()) return;

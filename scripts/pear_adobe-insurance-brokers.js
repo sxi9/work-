@@ -1,8 +1,8 @@
-// Adobe Insurance Brokers — Pear Ransomware (October 22, 2026)
+// Adobe Insurance Brokers, LLC — Pear Ransomware (October 22, 2026)
 // Paste the WHOLE file into the browser console on the Wagtail add/edit page.
 // Note: copyright "Adobe Insurance Brokers" (LLC stripped); Morgan Hill, CA; "Show more" → description truncated on the card
 
-const victimName = "Adobe Insurance Brokers";
+const victimName = "Adobe Insurance Brokers, LLC";
 const groupName = "Pear";
 const countryTag = "United States";
 const regionValue = "us_canada";
@@ -13,7 +13,7 @@ const titleSeparator = " Ransomware: ";
 const threatType = "ransomware";
 const ddwTag = "DDW Ransomware";
 
-const contentText = "On October 22, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Adobe Insurance Brokers, a U.S.-based independent insurance agency. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
+const contentText = "On October 22, 2026, ZeroFox observed an update on the Pear ransomware leak site targeting Adobe Insurance Brokers, LLC, a United States-based insurance agency. ZeroFox has detected close to 10,000 ransomware and digital extortion victims in the past year, of which over 50 percent are based in the U.S.-Canada region.";
 
 const leakText = String.raw`Adobe Insurance Brokers, LLC ANNOUNCED
 Independent insurance agency located in Morgan Hill, California
@@ -215,7 +215,7 @@ async function fillNeedle(cfg, win = window) {
         codeChars: (byId('contents-1-value-code')?.value || '').length,
         iocs: Array.from(doc.querySelectorAll('#id_iocs-FORMS [data-inline-panel-child]'))
             .map(row => `${row.querySelector('select[name$="-type"]')?.value} = ${row.querySelector('input[name$="-value"]')?.value}`),
-        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/\s+/g, '')}_1`,
+        imageTitle: `${cfg.groupName}_${cfg.victimName.replace(/[\s,.'"&()\/]+/g, '')}_1`,
         warnings,
     };
     log.log('--- VERIFY ---');
